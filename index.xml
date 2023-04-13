@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="airwindows JSFX Ports" commit="1befb663e2faf08e585b227d0c30549eaf23f2a4">
+<index version="1" name="airwindows JSFX Ports" commit="cb6ebd9739ef52bd00df630e1d39730403f61218">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -120,6 +120,17 @@
         <source file="Orpheus_Sub_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/Orpheus_Sub_Out.jsfx</source>
         <source type="projecttpl" file="ReaClassical_Orpheus_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/ReaClassical_Orpheus_A.RPP</source>
         <source type="projecttpl" file="ReaClassical_Orpheus_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/ReaClassical_Orpheus_B.RPP</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-13T17:53:00Z">
+        <changelog><![CDATA[Fix desc in templates]]></changelog>
+        <source file="Orpheus_Bus_In.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/Orpheus_Bus_In.jsfx</source>
+        <source file="Orpheus_Bus_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/Orpheus_Bus_Out.jsfx</source>
+        <source file="Orpheus_Channel_In.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/Orpheus_Channel_In.jsfx</source>
+        <source file="Orpheus_Channel_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/Orpheus_Channel_Out.jsfx</source>
+        <source file="Orpheus_Sub_In.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/Orpheus_Sub_In.jsfx</source>
+        <source file="Orpheus_Sub_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/Orpheus_Sub_Out.jsfx</source>
+        <source type="projecttpl" file="ReaClassical_Orpheus_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/ReaClassical_Orpheus_A.RPP</source>
+        <source type="projecttpl" file="ReaClassical_Orpheus_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/cb6ebd9739ef52bd00df630e1d39730403f61218/Consoles/ReaClassical_Orpheus_B.RPP</source>
       </version>
     </reapack>
     <reapack name="Orpheus_Lite.jsfx" type="effect" desc="Orpheus Lite Console (chmaha)">
