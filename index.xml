@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="airwindows JSFX Ports" commit="cb6ebd9739ef52bd00df630e1d39730403f61218">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="cb6ebd9739ef52bd00df630e1d39730403f61218">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
