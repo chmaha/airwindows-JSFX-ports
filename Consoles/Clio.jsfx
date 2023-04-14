@@ -27,8 +27,6 @@ c = freemem; freemem += 35;
 g = freemem; freemem += 9; 
 outg = freemem; freemem += 9;  
 
-UINT32_MAX = 4294967295;
-
 count = 0; while(count < 34) (c[count] = count;x +=1;);
   g[1] = pow(10.0, -5.2 / 14.0); 
   g[2] = pow(10.0, -6.2 / 14.0); 

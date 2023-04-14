@@ -22,10 +22,6 @@ softR = freemem; freemem +=11;
 intermediateL = freemem; freemem +=18;
 intermediateR = freemem; freemem +=18;
 
-UINT32_MAX = 4294967295;
-
-
-
 @slider
 
 inTrim = slider1*2.0;

@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc: ELSA: Extremely Light Saturation Applier (chmaha)
 author: chmaha
 about:
@@ -14,8 +14,6 @@ out_pin:left output
 out_pin:right output
 
 @init
-
-UINT32_MAX = 4294967295;
 
 A = 0.0;
 

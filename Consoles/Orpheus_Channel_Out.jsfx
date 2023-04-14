@@ -16,8 +16,6 @@ out_pin:right output
 @init
 freemem = 0;
 
-UINT32_MAX = 4294967295;
-
 //inTrimA = 0.5; inTrimB = 0.5;
 
 

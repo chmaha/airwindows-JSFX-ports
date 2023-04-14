@@ -1,8 +1,8 @@
 @description Eurydice Console (chmaha)
 @author chmaha
-@version 1.3
+@version 1.4
 @changelog
-  Replace M_PI references with $pi
+  Remove UINT32_MAX references
 @metapackage
 @provides
   Eurydice_Bus.jsfx

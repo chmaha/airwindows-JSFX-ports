@@ -16,8 +16,6 @@ out_pin:right output
 @init
 freemem = 0;
 
-UINT32_MAX = 4294967295;
-
 @slider
 
 inTrim = slider1*2.0;

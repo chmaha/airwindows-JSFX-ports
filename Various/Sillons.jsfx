@@ -1,4 +1,4 @@
-Version: 1.3
+Version: 1.4
 desc:Sillons Vinyl Emulation (chmaha)
 author: chmaha
 about:
@@ -24,8 +24,6 @@ fMid = freemem; freemem+=11;
 aSide = freemem; freemem+=11;
 bSide = freemem; freemem+=11;
 fSide = freemem; freemem+=11;  
-
-UINT32_MAX = 4294967295;
 
 count=0; while(count < 11) (
   aMid[count] = 0.0;

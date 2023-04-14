@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Pascal Compressor (chmaha)
 author: chmaha
 about:
@@ -24,8 +24,6 @@ fixA = freemem; freemem +=13;
 fixB = freemem; freemem +=13;
 intermediateL = freemem; freemem +=16;
 intermediateR = freemem; freemem +=16;
-
-UINT32_MAX = 4294967295;
 
 muSpeedA = 10000;
 muSpeedB = 10000;
