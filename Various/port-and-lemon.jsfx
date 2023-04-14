@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Port-and-Lemon Compressor / Gate (chmaha)
 author: chmaha
 about:
@@ -20,8 +20,6 @@ out_pin:right output
 @init
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
-
 
 WasNegativeL = 0;
 ZeroCrossL = 0;

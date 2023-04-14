@@ -17,9 +17,6 @@ out_pin:right output
 freemem = 0;
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
-
-
 
 @slider
 
@@ -30,7 +27,7 @@ inTrim = slider1*2.0;
 (srate > 49000.0) ? hsr = 1 : hsr = 0;
 fix_freq = 24000.0 / srate;
 fix_reso = 0.52110856;
-K = tan(M_PI * fix_freq); 
+K = tan($pi * fix_freq); 
 norm = 1.0 / (1.0 + K / fix_reso + K * K);
 fix_a0 = K * K * norm;
 fix_a1 = 2.0 * fix_a0;

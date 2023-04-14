@@ -16,7 +16,6 @@ freemem = 0;
 biquadA = freemem; freemem += 15;
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
 
 x = 0; while(x < 15) (biquadA[x] = 0.0; x+=1;);
 
@@ -27,7 +26,7 @@ x = 0; while(x < 15) (biquadA[x] = 0.0; x+=1;);
 biquadA[0] = 30000.0 / srate;
 biquadA[1] = 1.618033988749894848204586;
 
-K = tan(M_PI * biquadA[0]); //lowpass
+K = tan($pi * biquadA[0]); //lowpass
 norm = 1.0 / (1.0 + K / biquadA[1] + K * K);
 biquadA[2] = K * K * norm;
 biquadA[3] = 2.0 * biquadA[2];
