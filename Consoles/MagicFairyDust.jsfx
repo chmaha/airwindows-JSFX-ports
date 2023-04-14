@@ -21,7 +21,6 @@ biquadA = freemem; freemem+=15;
 biquadB = freemem; freemem+=15;
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
 
 A = 0.0;
 B = 0.0;
@@ -63,7 +62,7 @@ biquadB[0] = biquadA[0] = cutoff / srate;
 biquadA[1] = 1.618033988749894848204586;
 biquadB[1] = 0.618033988749894848204586;
 
-K = tan(M_PI * biquadA[0]); //lowpass
+K = tan($pi * biquadA[0]); //lowpass
 norm = 1.0 / (1.0 + K / biquadA[1] + K * K);
 biquadA[2] = K * K * norm;
 biquadA[3] = 2.0 * biquadA[2];
@@ -71,7 +70,7 @@ biquadA[4] = biquadA[2];
 biquadA[5] = 2.0 * (K * K - 1.0) * norm;
 biquadA[6] = (1.0 - K / biquadA[1] + K * K) * norm;
 
-K = tan(M_PI * biquadA[0]);
+K = tan($pi * biquadA[0]);
 norm = 1.0 / (1.0 + K / biquadB[1] + K * K);
 biquadB[2] = K * K * norm;
 biquadB[3] = 2.0 * biquadB[2];

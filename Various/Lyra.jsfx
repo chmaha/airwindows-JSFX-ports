@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Lyra Compressor (chmaha)
 author: chmaha
 about:
@@ -39,9 +39,6 @@ B = 0.5;
 C = 1.0;
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
-
-
 
 @slider
 

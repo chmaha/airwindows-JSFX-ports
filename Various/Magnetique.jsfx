@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Magnétique Tape Emulation (chmaha)
 author: chmaha
 about:
@@ -32,7 +32,6 @@ biquadCR = freemem; freemem+=9;
 biquadDR = freemem; freemem+=9;
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
 
 A = 0.5;
 B = 0.5;
@@ -60,7 +59,7 @@ temp=0; while(temp < 501) (dL[temp] = 0.0;dR[temp] = 0.0;temp+=1;);
 
 gcount = 0;  
 rateof = 0.5;
-sweep = M_PI;
+sweep = $pi;
 nextmax = 0.5;
 lastSampleL = 0.0;
 lastSampleR = 0.0;
@@ -92,7 +91,7 @@ HeadBumpFreq = 0.12/overallscale;
 
 biquadAL[0] = biquadBL[0] = biquadAR[0] = biquadBR[0] = 0.007/overallscale;
 biquadAL[1] = biquadBL[1] = biquadAR[1] = biquadBR[1] = 0.0009;
-K = tan(M_PI * biquadBR[0]);
+K = tan($pi * biquadBR[0]);
 norm = 1.0 / (1.0 + K / biquadBR[1] + K * K);
 biquadAL[2] = biquadBL[2] = biquadAR[2] = biquadBR[2] = K / biquadBR[1] * norm;
 biquadAL[4] = biquadBL[4] = biquadAR[4] = biquadBR[4] = -biquadBR[2];
@@ -101,7 +100,7 @@ biquadAL[6] = biquadBL[6] = biquadAR[6] = biquadBR[6] = (1.0 - K / biquadBR[1] +
 
 biquadCL[0] = biquadDL[0] = biquadCR[0] = biquadDR[0] = 0.032/overallscale;
 biquadCL[1] = biquadDL[1] = biquadCR[1] = biquadDR[1] = 0.0007;
-K = tan(M_PI * biquadDR[0]);
+K = tan($pi * biquadDR[0]);
 norm = 1.0 / (1.0 + K / biquadDR[1] + K * K);
 biquadCL[2] = biquadDL[2] = biquadCR[2] = biquadDR[2] = K / biquadDR[1] * norm;
 biquadCL[4] = biquadDL[4] = biquadCR[4] = biquadDR[4] = -biquadDR[2];
@@ -151,8 +150,8 @@ count = gcount | 0;
   rateof = (rateof * (1.0-fluttertrim)) + (nextmax * fluttertrim);
   sweep += rateof * fluttertrim;
   
-  (sweep >= (M_PI*2.0)) ? (
-    sweep -= M_PI;
+  (sweep >= ($pi*2.0)) ? (
+    sweep -= $pi;
     nextmax = 0.24 + (flutterrandy * 0.74);
   );
   //apply to input signal only when flutter is present, interpolate samples
@@ -308,13 +307,13 @@ inputSampleR += ((iirHeadBumpAR + iirHeadBumpBR) * HeadBumpControl);
 (inputSampleL > 1.0) ? inputSampleL = 1.0;
 (inputSampleL < -1.0) ? inputSampleL = -1.0;
 mojo; mojo = pow(abs(inputSampleL),0.25);
-(mojo > 0.0) ? inputSampleL = (sin(inputSampleL * mojo * M_PI * 0.5) / mojo);
+(mojo > 0.0) ? inputSampleL = (sin(inputSampleL * mojo * $pi * 0.5) / mojo);
 //mojo is the one that flattens WAAAAY out very softly before wavefolding    
 
 (inputSampleR > 1.0) ? inputSampleR = 1.0;
 (inputSampleR < -1.0) ? inputSampleR = -1.0;
 mojo = pow(abs(inputSampleR),0.25);
-(mojo > 0.0) ? inputSampleR = (sin(inputSampleR * mojo * M_PI * 0.5) / mojo);
+(mojo > 0.0) ? inputSampleR = (sin(inputSampleR * mojo * $pi * 0.5) / mojo);
 //mojo is the one that flattens WAAAAY out very softly before wavefolding    
 
 inputSampleL += groundSampleL; //apply UnBox processing

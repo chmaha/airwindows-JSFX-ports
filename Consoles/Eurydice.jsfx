@@ -1,8 +1,8 @@
 @description Eurydice Console (chmaha)
 @author chmaha
-@version 1.2
+@version 1.3
 @changelog
-  Fix desc in templates
+  Replace M_PI references with $pi
 @metapackage
 @provides
   Eurydice_Bus.jsfx

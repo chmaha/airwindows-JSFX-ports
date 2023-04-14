@@ -17,7 +17,6 @@ softL = freemem; freemem+=11;
 softR = freemem; freemem+=11;
 
 UINT32_MAX = 4294967295;
-M_PI = 3.1415926535897932384626433;
 
 iirAL = 0.0; iirBL = 0.0; iirAR = 0.0; iirBR = 0.0;
 x=0; while(x < 10) (softL[x] = 0.0; softR[x] = 0.0; x+=1;);
@@ -39,7 +38,7 @@ iirAmountA = 12.66/srate;
 : hsr = 0;
 fix_freq = 24000.0 / srate;
 fix_reso = 0.59435114;
-K = tan(M_PI * fix_freq); //lowpass
+K = tan($pi * fix_freq); //lowpass
 norm = 1.0 / (1.0 + K / fix_reso + K * K);
 fix_a0 = K * K * norm;
 fix_a1 = 2.0 * fix_a0;
