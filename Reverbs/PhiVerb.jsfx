@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:PhiVerb Reverb (chmaha)
 author: chmaha
 about:
@@ -49,8 +49,6 @@ aLR = freemem; freemem+=10000;
 aMR = freemem; freemem+=10000;
 
 lastRefR = freemem; freemem+=10;
-
-UINT32_MAX = 4294967295;
 
 countI = 1;
 countJ = 1;

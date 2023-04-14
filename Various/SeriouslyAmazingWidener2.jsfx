@@ -1,4 +1,4 @@
-Version: 1.3
+Version: 1.4
 desc:SAW2 — Seriously Amazing Widener 2 (chmaha)
 author: chmaha
 about:
@@ -30,8 +30,6 @@ biquadR7 = freemem; freemem +=11;
 
 biquadS3 = freemem; freemem +=11;
 biquadS5 = freemem; freemem +=11;
-
-UINT32_MAX = 4294967295;
 
 @slider
 

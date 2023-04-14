@@ -13,10 +13,6 @@ out_pin:right output
 
 @init
 
-UINT32_MAX = 4294967295;
-
-
-
 flip = 1;
 
 @slider

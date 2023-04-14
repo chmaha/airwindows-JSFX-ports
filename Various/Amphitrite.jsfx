@@ -1,4 +1,4 @@
-Version: 1.3
+Version: 1.4
 desc: Amphitrite Compressor (chmaha)
 author: chmaha
 about:
@@ -84,8 +84,6 @@ flip = 1;
 chaseA = 0.0;
 chaseB = 0.0;
 chaseC = 0.0;  
-
-UINT32_MAX = 4294967295; 
 
 @slider
 

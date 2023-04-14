@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Titan Capacitor Distortion (chmaha)
 author: chmaha
 about:
@@ -18,8 +18,6 @@ out_pin:right output
 
 @init
 freemem = 0;
-
-UINT32_MAX = 4294967295;
 
 lowpassBaseAmount = 1.0;
 wet = 1.0;

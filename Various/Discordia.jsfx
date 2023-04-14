@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Discordia Distortion (chmaha)
 author: chmaha
 about:
@@ -22,10 +22,6 @@ previousInL = freemem; freemem +=9;
 previousOutL = freemem; freemem +=9;
 previousInR = freemem; freemem +=9;
 previousOutR = freemem; freemem +=9;
-
-UINT32_MAX = 4294967295;
-
-
 
 @slider
 

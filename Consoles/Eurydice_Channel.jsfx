@@ -16,8 +16,6 @@ out_pin:right output
 freemem = 0;
 biquadA = freemem; freemem += 15;
 
-UINT32_MAX = 4294967295;
-
 x = 0; while(x < 15) (biquadA[x] = 0.0;x+=1;);
 
 

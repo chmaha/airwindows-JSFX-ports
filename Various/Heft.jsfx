@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Heft Bass (chmaha)
 author: chmaha
 about:
@@ -20,10 +20,6 @@ previousSampleL = freemem; freemem +=9;
 previousTrendL = freemem; freemem +=9;
 previousSampleR = freemem; freemem +=9;
 previousTrendR = freemem; freemem +=9;
-
-UINT32_MAX = 4294967295;
-
-
 
 @slider
 

@@ -16,8 +16,6 @@ freemem = 0;
 softL = freemem; freemem+=11;
 softR = freemem; freemem+=11;
 
-UINT32_MAX = 4294967295;
-
 iirAL = 0.0; iirBL = 0.0; iirAR = 0.0; iirBR = 0.0;
 x=0; while(x < 10) (softL[x] = 0.0; softR[x] = 0.0; x+=1;);
 

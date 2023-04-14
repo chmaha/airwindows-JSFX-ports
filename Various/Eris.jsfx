@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:Eris Distortion (chmaha)
 author: chmaha
 about:
@@ -21,8 +21,6 @@ out_pin:right output
 freemem = 0;
 figureL = freemem; freemem += 9;
 figureR = freemem; freemem += 9;
-
-UINT32_MAX = 4294967295;
 
 x=0; while(x < 9) (figureL[x] = 0.0;figureR[x] = 0.0;x+=1;);
 

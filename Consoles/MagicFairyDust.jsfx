@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 desc:MagicFairyDust Console Saturation (chmaha)
 author: chmaha
 about:
@@ -19,8 +19,6 @@ out_pin:right output
 freemem = 0;
 biquadA = freemem; freemem+=15;
 biquadB = freemem; freemem+=15;
-
-UINT32_MAX = 4294967295;
 
 A = 0.0;
 B = 0.0;

@@ -1,8 +1,8 @@
 @description Orpheus Console (chmaha)
 @author chmaha
-@version 1.4
+@version 1.5
 @changelog
-  Replace M_PI references with $pi
+  Remove UINT32_MAX references
 @metapackage
 @provides
   Orpheus_Bus_In.jsfx

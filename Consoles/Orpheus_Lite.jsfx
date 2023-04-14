@@ -1,8 +1,8 @@
 @description Orpheus Lite Console (chmaha)
 @author chmaha
-@version 1.3
+@version 1.4
 @changelog
-  Fix routing issue in B template
+  Remove UINT32_MAX references
 @metapackage
 @provides
   Orpheus_Lite_Channel.jsfx
