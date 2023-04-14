@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="0a01e9723d498308910ba0723037f7e705f78c67">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -20,6 +20,11 @@
         <changelog><![CDATA[Fix desc in templates]]></changelog>
         <source file="Cora.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/Cora.jsfx</source>
         <source type="projecttpl" file="ReaClassical_Cora.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/ReaClassical_Cora.RPP</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <changelog><![CDATA[Remove UINT32_MAX references]]></changelog>
+        <source file="Cora.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Cora.jsfx</source>
+        <source type="projecttpl" file="ReaClassical_Cora.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Cora.RPP</source>
       </version>
     </reapack>
     <reapack name="desk-a-docious.jsfx" type="effect" desc="Desk-a-docious Console Colors (chmaha)">
@@ -49,6 +54,9 @@
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/Elsa.jsfx</source>
       </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Elsa.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Eurydice.jsfx" type="effect" desc="Eurydice Console (chmaha)">
       <metadata>
@@ -73,6 +81,13 @@
         <source file="Eurydice_Channel.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Consoles/Eurydice_Channel.jsfx</source>
         <source type="projecttpl" file="ReaClassical_Eurydice_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Consoles/ReaClassical_Eurydice_A.RPP</source>
         <source type="projecttpl" file="ReaClassical_Eurydice_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Consoles/ReaClassical_Eurydice_B.RPP</source>
+      </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <changelog><![CDATA[Remove UINT32_MAX references]]></changelog>
+        <source file="Eurydice_Bus.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Eurydice_Bus.jsfx</source>
+        <source file="Eurydice_Channel.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Eurydice_Channel.jsfx</source>
+        <source type="projecttpl" file="ReaClassical_Eurydice_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Eurydice_A.RPP</source>
+        <source type="projecttpl" file="ReaClassical_Eurydice_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Eurydice_B.RPP</source>
       </version>
     </reapack>
     <reapack name="Genesis.jsfx" type="effect" desc="Genesis Console (chmaha)">
@@ -105,6 +120,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/MagicFairyDust.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/MagicFairyDust.jsfx</source>
       </version>
     </reapack>
     <reapack name="Orpheus.jsfx" type="effect" desc="Orpheus Console (chmaha)">
@@ -150,6 +168,17 @@
         <source type="projecttpl" file="ReaClassical_Orpheus_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Consoles/ReaClassical_Orpheus_A.RPP</source>
         <source type="projecttpl" file="ReaClassical_Orpheus_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Consoles/ReaClassical_Orpheus_B.RPP</source>
       </version>
+      <version name="1.5" author="chmaha" time="2023-04-14T12:05:59Z">
+        <changelog><![CDATA[Remove UINT32_MAX references]]></changelog>
+        <source file="Orpheus_Bus_In.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Bus_In.jsfx</source>
+        <source file="Orpheus_Bus_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Bus_Out.jsfx</source>
+        <source file="Orpheus_Channel_In.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Channel_In.jsfx</source>
+        <source file="Orpheus_Channel_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Channel_Out.jsfx</source>
+        <source file="Orpheus_Sub_In.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Sub_In.jsfx</source>
+        <source file="Orpheus_Sub_Out.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Sub_Out.jsfx</source>
+        <source type="projecttpl" file="ReaClassical_Orpheus_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Orpheus_A.RPP</source>
+        <source type="projecttpl" file="ReaClassical_Orpheus_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Orpheus_B.RPP</source>
+      </version>
     </reapack>
     <reapack name="Orpheus_Lite.jsfx" type="effect" desc="Orpheus Lite Console (chmaha)">
       <metadata>
@@ -168,6 +197,13 @@
         <source type="projecttpl" file="ReaClassical_Orpheus_Lite_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/ReaClassical_Orpheus_Lite_A.RPP</source>
         <source type="projecttpl" file="ReaClassical_Orpheus_Lite_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/ReaClassical_Orpheus_Lite_B.RPP</source>
       </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <changelog><![CDATA[Remove UINT32_MAX references]]></changelog>
+        <source file="Orpheus_Lite_Channel.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Lite_Channel.jsfx</source>
+        <source file="Orpheus_Lite_Bus.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Orpheus_Lite_Bus.jsfx</source>
+        <source type="projecttpl" file="ReaClassical_Orpheus_Lite_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Orpheus_Lite_A.RPP</source>
+        <source type="projecttpl" file="ReaClassical_Orpheus_Lite_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Orpheus_Lite_B.RPP</source>
+      </version>
     </reapack>
     <reapack name="Supersonic.jsfx" type="effect" desc="Supersonic Filter (chmaha)">
       <metadata>
@@ -181,6 +217,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/Supersonic.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/Supersonic.jsfx</source>
       </version>
     </reapack>
   </category>
@@ -343,6 +382,9 @@
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Reverbs/Bricastic.jsfx</source>
       </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Reverbs/Bricastic.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Bricastic2.jsfx" type="effect" desc="Bricastic2 Reverb (chmaha)">
       <metadata>
@@ -415,6 +457,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Reverbs/PhiVerb.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Reverbs/PhiVerb.jsfx</source>
       </version>
     </reapack>
   </category>
@@ -492,6 +537,9 @@
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/Amphitrite.jsfx</source>
       </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Amphitrite.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Aurora.jsfx" type="effect" desc="Aurora Exciter (chmaha)">
       <metadata>
@@ -508,6 +556,9 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/Aurora.jsfx</source>
+      </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Aurora.jsfx</source>
       </version>
     </reapack>
     <reapack name="Biquadicus.jsfx" type="effect" desc="Biquadicus Biquad Filters (chmaha)">
@@ -568,6 +619,9 @@
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/CoralBones.jsfx</source>
       </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/CoralBones.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Discordia.jsfx" type="effect" desc="Discordia Distortion (chmaha)">
       <metadata>
@@ -581,6 +635,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Discordia.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Discordia.jsfx</source>
       </version>
     </reapack>
     <reapack name="Domar.jsfx" type="effect" desc="Domar Brightness Acceleration Limiter (chmaha)">
@@ -609,6 +666,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Eris.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Eris.jsfx</source>
       </version>
     </reapack>
     <reapack name="Evolution.jsfx" type="effect" desc="Evolution Channel Strip (chmaha)">
@@ -680,6 +740,9 @@
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Heft.jsfx</source>
       </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Heft.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Hippity Hoppity.jsfx" type="effect" desc="Hippity Hoppity Lo-Fi (chmaha)">
       <metadata>
@@ -710,6 +773,9 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/Lyra.jsfx</source>
+      </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Lyra.jsfx</source>
       </version>
     </reapack>
     <reapack name="MadHatter.jsfx" type="effect" desc="Mad Hatter Compressor (chmaha)">
@@ -787,6 +853,9 @@
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/MuTube.jsfx</source>
       </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/MuTube.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Oxonia.jsfx" type="effect" desc="Oxonia Compressor (chmaha)">
       <metadata>
@@ -801,6 +870,9 @@
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Oxonia.jsfx</source>
       </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Oxonia.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Pascal.jsfx" type="effect" desc="Pascal Compressor (chmaha)">
       <metadata>
@@ -814,6 +886,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Pascal.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Pascal.jsfx</source>
       </version>
     </reapack>
     <reapack name="Phasity.jsfx" type="effect" desc="Phasity Delay Timing Tool (chmaha)">
@@ -845,6 +920,9 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/port-and-lemon.jsfx</source>
+      </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/port-and-lemon.jsfx</source>
       </version>
     </reapack>
     <reapack name="Reelty.jsfx" type="effect" desc="Reelty Tape Emulation (chmaha)">
@@ -888,6 +966,9 @@
       <version name="1.3" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/SeriouslyAmazingWidener2.jsfx</source>
       </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/SeriouslyAmazingWidener2.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Sillons.jsfx" type="effect" desc="Sillons Vinyl Emulation (chmaha)">
       <metadata>
@@ -904,6 +985,9 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/Sillons.jsfx</source>
+      </version>
+      <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Sillons.jsfx</source>
       </version>
     </reapack>
     <reapack name="Snippity.jsfx" type="effect" desc="Snippity Soft Clipper (chmaha)">
@@ -933,6 +1017,9 @@
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Solar_Wind.jsfx</source>
       </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Solar_Wind.jsfx</source>
+      </version>
     </reapack>
     <reapack name="Titan.jsfx" type="effect" desc="Titan Capacitor Distortion (chmaha)">
       <metadata>
@@ -946,6 +1033,9 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/Titan.jsfx</source>
+      </version>
+      <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Titan.jsfx</source>
       </version>
     </reapack>
     <reapack name="Valvity.jsfx" type="effect" desc="Valvity Tube Saturation (chmaha)">
