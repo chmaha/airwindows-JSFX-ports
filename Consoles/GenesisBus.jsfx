@@ -23,12 +23,12 @@ inputSampleR = spl1;
 
 (inputSampleL > 2.8) ? inputSampleL = 2.8;
 (inputSampleL < -2.8) ? inputSampleL = -2.8;
-(inputSampleL > 0.0) ? inputSampleL = (inputSampleL*2.0)/(2.8274333882308-inputSampleL)
-: inputSampleL = -(inputSampleL*-2.0)/(2.8274333882308+inputSampleL);
+(inputSampleL > 0.0) ? inputSampleL = (inputSampleL*2.0)/(3.0-inputSampleL)
+: inputSampleL = -(inputSampleL*-2.0)/(3.0+inputSampleL);
 (inputSampleR > 2.8) ? inputSampleR = 2.8;
 (inputSampleR < -2.8) ? inputSampleR = -2.8;
-(inputSampleR > 0.0) ? inputSampleR = (inputSampleR*2.0)/(2.8274333882308-inputSampleR)
-: inputSampleR = -(inputSampleR*-2.0)/(2.8274333882308+inputSampleR);
+(inputSampleR > 0.0) ? inputSampleR = (inputSampleR*2.0)/(3.0-inputSampleR)
+: inputSampleR = -(inputSampleR*-2.0)/(3.0+inputSampleR);
 
 spl0 = inputSampleL;
 spl1 = inputSampleR;
