@@ -11,15 +11,22 @@ in_pin:right input
 out_pin:left output
 out_pin:right output
 
+slider1:0.5<0,1,0.01>Fader
+
 @init
 
 @slider
+
+inTrim = slider1*2.0;
 
 @block
 
 @sample
 inputSampleL = spl0;
 inputSampleR = spl1;
+
+inputSampleL *=inTrim;
+inputSampleR *=inTrim;
 
 (inputSampleL > 2.8) ? inputSampleL = 2.8;
 (inputSampleL < -2.8) ? inputSampleL = -2.8;

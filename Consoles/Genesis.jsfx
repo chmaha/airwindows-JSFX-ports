@@ -1,8 +1,8 @@
 @description Genesis Console (chmaha)
 @author chmaha
-@version 1.3
+@version 1.4
 @changelog
-  Add further airwindows changes to Console0BussProc.cpp
+  Add trim controls
 @metapackage
 @provides
   GenesisBus.jsfx
