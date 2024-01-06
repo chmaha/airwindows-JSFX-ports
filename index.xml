@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="6a715a386e8470376149669d7ae44a7426ee8587">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="b2fe50135c1c1af60d698db1d8dd263a35b1cf51">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -219,7 +219,7 @@
         <source type="projecttpl" file="ReaClassical_Orpheus_Lite_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/ReaClassical_Orpheus_Lite_B.RPP</source>
       </version>
     </reapack>
-    <reapack name="Sororium.jsfx" type="effect" desc="Sororium Consoles">
+    <reapack name="Sororium.jsfx" type="effect" desc="Sororium Consoles (chmaha)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -230,7 +230,7 @@
 ]]></description>
       </metadata>
       <version name="1.0" author="chmaha" time="2024-01-06T17:13:40Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/6a715a386e8470376149669d7ae44a7426ee8587/Consoles/Sororium.jsfx</source>
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/b2fe50135c1c1af60d698db1d8dd263a35b1cf51/Consoles/Sororium.jsfx</source>
       </version>
     </reapack>
     <reapack name="Supersonic.jsfx" type="effect" desc="Supersonic Filter (chmaha)">
