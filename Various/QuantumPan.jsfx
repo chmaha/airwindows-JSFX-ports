@@ -34,9 +34,6 @@ panBits = B;
 (bitshiftL < -2) ? bitshiftL = -2; (bitshiftL > 17) ? bitshiftL = 17;
 (bitshiftR < -2) ? bitshiftR = -2; (bitshiftR > 17) ? bitshiftR = 17;
 
-//gainL = 1.0;
-//gainR = 1.0;
-
 gainL = (bitshiftL == 17) ? 0.0 :
         (bitshiftL == 16) ? 0.0000152587890625 :
         (bitshiftL == 15) ? 0.000030517578125 :
