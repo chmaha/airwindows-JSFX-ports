@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="43742e4c1c501d1329e0fead54367f247e805d18">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="340cbc25a38e70f35b5d04fbd29be3a7480af770">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -685,7 +685,7 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Distorion" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Distorion (MIT License) JSFX version released under GPLv3 license\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Distortion" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Distortion (MIT License) JSFX version released under GPLv3 license\par}
 }
 ]]></description>
       </metadata>
@@ -694,6 +694,9 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Discordia.jsfx</source>
+      </version>
+      <version name="1.4" author="chmaha" time="2024-01-19T17:10:04Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/340cbc25a38e70f35b5d04fbd29be3a7480af770/Various/Discordia.jsfx</source>
       </version>
     </reapack>
     <reapack name="Domar.jsfx" type="effect" desc="Domar Brightness Acceleration Limiter (chmaha)">
