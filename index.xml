@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="6acabcc1f7446bce89cb4bcf0c3936c3774abd9f">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="43742e4c1c501d1329e0fead54367f247e805d18">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1006,7 +1006,7 @@
 ]]></description>
       </metadata>
       <version name="1.0" author="chmaha" time="2024-01-19T12:52:46Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/6acabcc1f7446bce89cb4bcf0c3936c3774abd9f/Various/QuantumPan.jsfx</source>
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/43742e4c1c501d1329e0fead54367f247e805d18/Various/QuantumPan.jsfx</source>
       </version>
     </reapack>
     <reapack name="Reelty.jsfx" type="effect" desc="Reelty Tape Emulation (chmaha)">
