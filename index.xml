@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="ded5deee6a7f00bfd83bfccf619706f874d3503c">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="a47cf7bfe49d6cfcfe03caaabb9974164c9fc5d8">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -979,6 +979,20 @@
       </version>
       <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/port-and-lemon.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="QuantumGain.jsfx" type="effect" desc="Quantum Gain (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "BitShiftGain" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/BitShiftGain (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-01-19T10:10:37Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/a47cf7bfe49d6cfcfe03caaabb9974164c9fc5d8/Various/QuantumGain.jsfx</source>
       </version>
     </reapack>
     <reapack name="Reelty.jsfx" type="effect" desc="Reelty Tape Emulation (chmaha)">
