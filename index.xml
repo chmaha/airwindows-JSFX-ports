@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="d95b6f50ee393de142c7a44e53f3b7fbc9c1e305">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="d59635b62a7fde67f2bf3d0bed5fc7b6e0b20e08">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1165,6 +1165,20 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Titan.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Typhon.jsfx" type="effect" desc="Typhon Saturation (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Creature" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Creature (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-01-22T11:12:59Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/d59635b62a7fde67f2bf3d0bed5fc7b6e0b20e08/Various/Typhon.jsfx</source>
       </version>
     </reapack>
     <reapack name="Valvity.jsfx" type="effect" desc="Valvity Tube Saturation (chmaha)">
