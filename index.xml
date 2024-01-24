@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="d59635b62a7fde67f2bf3d0bed5fc7b6e0b20e08">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="1fd97589a7839f3f7de2367c7d68f151c263568a">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -337,6 +337,20 @@
       </metadata>
       <version name="1.2" author="chmaha" time="2023-04-13T17:50:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Dithers/ReelDither.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="ScottyDither.jsfx" type="effect" desc="Scotty Dither (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Beam" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Beam (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-01-24T10:36:05Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1fd97589a7839f3f7de2367c7d68f151c263568a/Dithers/ScottyDither.jsfx</source>
       </version>
     </reapack>
     <reapack name="six-dither_sid.jsfx" type="effect" desc="Six-Dither Sid (chmaha)">
