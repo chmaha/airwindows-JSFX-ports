@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="f5dedac20c56d20e96d1607af456a37de5607403">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="d2367441b025f2ae135cd734306d9047acc99e8f">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -559,7 +559,7 @@
 ]]></description>
       </metadata>
       <version name="1.0" author="chmaha" time="2024-01-24T11:58:11Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/f5dedac20c56d20e96d1607af456a37de5607403/Various/78SlewClipper.jsfx</source>
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/d2367441b025f2ae135cd734306d9047acc99e8f/Various/78SlewClipper.jsfx</source>
       </version>
     </reapack>
     <reapack name="A-coo-sticks.jsfx" type="effect" desc="A-coo-sticks tape delay echo (chmaha)">
