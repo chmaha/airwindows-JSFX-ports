@@ -1,0 +1,9 @@
+@description Em-See-Eye Console (chmaha)
+@author chmaha
+@version 1.0
+@metapackage
+@provides
+  Em-See-Eye_Channel.jsfx
+  Em-See-Eye_Bus.jsfx
+@about
+  These jsfx analog console emulation plugins use DSP from airwindows ConsoleMD
