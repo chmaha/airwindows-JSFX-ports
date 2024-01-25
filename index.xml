@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="deb904aa16abdbeacb32ed62ef2912eecff36fd3">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="2d59097866e5898793192f0298620b93a1cecefc">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -152,6 +152,21 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Consoles/MagicFairyDust.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Octo4_Console.jsfx" type="effect" desc="Octo4 Console (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 These jsfx analog console emulation plugins use DSP from airwindows ConsoleLA\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-01-25T09:41:15Z">
+        <source file="Octo4Channel.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/2d59097866e5898793192f0298620b93a1cecefc/Consoles/Octo4Channel.jsfx</source>
+        <source file="Octo4Bus.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/2d59097866e5898793192f0298620b93a1cecefc/Consoles/Octo4Bus.jsfx</source>
       </version>
     </reapack>
     <reapack name="Orpheus.jsfx" type="effect" desc="Orpheus Console (chmaha)">
