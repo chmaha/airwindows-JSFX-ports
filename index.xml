@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="945b48ff69d3c236e4ba342aa1830effd4c21bf5">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="65568ec471d2cc83480a73e580ad33031855cd9a">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -142,6 +142,13 @@
         <source file="GenesisChannel.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/945b48ff69d3c236e4ba342aa1830effd4c21bf5/Consoles/GenesisChannel.jsfx</source>
         <source type="projecttpl" file="ReaClassical_Genesis_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/945b48ff69d3c236e4ba342aa1830effd4c21bf5/Consoles/ReaClassical_Genesis_A.RPP</source>
         <source type="projecttpl" file="ReaClassical_Genesis_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/945b48ff69d3c236e4ba342aa1830effd4c21bf5/Consoles/ReaClassical_Genesis_B.RPP</source>
+      </version>
+      <version name="1.6" author="chmaha" time="2024-01-29T13:18:43Z">
+        <changelog><![CDATA[Use discrete slider values as in QuantumGain/Pan]]></changelog>
+        <source file="GenesisBus.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/65568ec471d2cc83480a73e580ad33031855cd9a/Consoles/GenesisBus.jsfx</source>
+        <source file="GenesisChannel.jsfx">https://github.com/chmaha/airwindows-JSFX-ports/raw/65568ec471d2cc83480a73e580ad33031855cd9a/Consoles/GenesisChannel.jsfx</source>
+        <source type="projecttpl" file="ReaClassical_Genesis_A.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/65568ec471d2cc83480a73e580ad33031855cd9a/Consoles/ReaClassical_Genesis_A.RPP</source>
+        <source type="projecttpl" file="ReaClassical_Genesis_B.RPP">https://github.com/chmaha/airwindows-JSFX-ports/raw/65568ec471d2cc83480a73e580ad33031855cd9a/Consoles/ReaClassical_Genesis_B.RPP</source>
       </version>
     </reapack>
     <reapack name="MagicFairyDust.jsfx" type="effect" desc="MagicFairyDust Console Saturation (chmaha)">
