@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="65568ec471d2cc83480a73e580ad33031855cd9a">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="2c6bded83391733d219e6bc11e709619d923d268">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -735,6 +735,20 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/Buttress.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="ChannelTwister.jsfx" type="effect" desc="Channel Twister (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "MSFlipTimer","LRFlipTimer", "LeftoMono" & "RightoMono" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/MSFlipTimer (MIT License) https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/LRFlipTimer (MIT License) https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/LeftoMono (MIT License) https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/RightoMono (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-01-29T16:50:37Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/2c6bded83391733d219e6bc11e709619d923d268/Various/ChannelTwister.jsfx</source>
       </version>
     </reapack>
     <reapack name="ClippySquish.jsfx" type="effect" desc="ClippySquish Compressor Soft Clipper (chmaha)">
