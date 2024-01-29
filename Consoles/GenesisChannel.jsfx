@@ -11,8 +11,8 @@ in_pin:right input
 out_pin:left output
 out_pin:right output
 
-slider1:0.5<0,1,0.01>Fader
-slider2:0.5<0,1,0.01>Pan
+slider1:0<-17,2,1>Volume
+slider2:0<-17,17,1>Pan
 
 @init
 
@@ -23,17 +23,12 @@ B = slider2;
 
 @block
 
-gainControl = (A*0.5)+0.05; //0.0 to 1.0
-gainBits = 20; 
-(gainControl > 0.0) ? gainBits = floor(1.0 / gainControl);
-bitshiftL = gainBits - 3;
-bitshiftR = gainBits - 3;
-panControl = (B*2.0)-1.0; //-1.0 to 1.0
-panAttenuation = (1.0-abs(panControl));
-panBits = 20;
-(panAttenuation > 0.0) ? panBits = floor(1.0 / panAttenuation);
-(panControl > 0.25) ? bitshiftL += panBits;
-(panControl < -0.25) ? bitshiftR += panBits;
+bitshiftL = bitshiftR = -A;
+
+panBits = B;
+(panBits > 0) ? bitshiftL += abs(panBits);
+(panBits < 0) ? bitshiftR += abs(panBits);
+
 (bitshiftL < -2) ? bitshiftL = -2; (bitshiftL > 17) ? bitshiftL = 17;
 (bitshiftR < -2) ? bitshiftR = -2; (bitshiftR > 17) ? bitshiftR = 17;
 

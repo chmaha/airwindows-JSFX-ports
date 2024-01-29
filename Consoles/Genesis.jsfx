@@ -1,8 +1,8 @@
 @description Genesis Console (chmaha)
 @author chmaha
-@version 1.5
+@version 1.6
 @changelog
-  Use bitshift for fader and pan in line with airwindows original
+  Use discrete slider values as in QuantumGain/Pan
 @metapackage
 @provides
   GenesisBus.jsfx
