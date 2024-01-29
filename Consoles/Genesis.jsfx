@@ -1,8 +1,8 @@
 @description Genesis Console (chmaha)
 @author chmaha
-@version 1.4
+@version 1.5
 @changelog
-  Add trim controls
+  Use bitshift for fader and pan in line with airwindows original
 @metapackage
 @provides
   GenesisBus.jsfx
