@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="2c6bded83391733d219e6bc11e709619d923d268">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="6fb4baca3e6013e50195a3b17613ad2b760c4fc4">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1113,6 +1113,20 @@
       </version>
       <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/port-and-lemon.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="PrimalOvertones.jsfx" type="effect" desc="Primal Overtones Saturation (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "ShortBuss" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/ShortBuss (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-02-19T16:00:27Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/6fb4baca3e6013e50195a3b17613ad2b760c4fc4/Various/PrimalOvertones.jsfx</source>
       </version>
     </reapack>
     <reapack name="QuantumGain.jsfx" type="effect" desc="Quantum Gain (chmaha)">
