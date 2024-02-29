@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="443eac3b623b21ead22c2a404ddb347d5ef14f3c">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="690f09a383cff3e013c80649a1b0f079d8c1471e">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -735,6 +735,20 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T11:55:20Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/875c6e2277a5df0e51ef2bbf4bfc69dd1c43f09f/Various/Buttress.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="CataclysmicClipper.jsfx" type="effect" desc="Cataclysmic Clipper (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "ADClip8" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/ADClip8 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2024-02-29T19:13:14Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/690f09a383cff3e013c80649a1b0f079d8c1471e/Various/CataclysmicClipper.jsfx</source>
       </version>
     </reapack>
     <reapack name="ChannelTwister.jsfx" type="effect" desc="Channel Twister (chmaha)">
