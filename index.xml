@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="8db08b7869298603a404e347254da63536b9aa9b">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="bc2a0d756858f03479dfefa4e5248075f1471521">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1326,7 +1326,7 @@
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Titan.jsfx</source>
       </version>
     </reapack>
-    <reapack name="TOE.jsfx" type="effect" desc="TOE - Transformer Overdrive Emulator Distortion (chmaha)">
+    <reapack name="TOED.jsfx" type="effect" desc="TOED - Transformer Overdrive Emulator Distortion (chmaha)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -1336,8 +1336,8 @@
 }
 ]]></description>
       </metadata>
-      <version name="1.0" author="chmaha" time="2024-03-19T11:53:54Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/8db08b7869298603a404e347254da63536b9aa9b/Various/TOE.jsfx</source>
+      <version name="1.0" author="chmaha" time="2024-03-19T12:09:54Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/bc2a0d756858f03479dfefa4e5248075f1471521/Various/TOED.jsfx</source>
       </version>
     </reapack>
     <reapack name="Typhon.jsfx" type="effect" desc="Typhon Saturation (chmaha)">
