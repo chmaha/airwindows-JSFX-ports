@@ -1,4 +1,4 @@
-Version: 1.0
+Version: 1.1
 desc:Elemental Mastering (chmaha)
 author: chmaha
 about:
@@ -24,8 +24,6 @@ kalM = freemem; freemem=freemem+30;
 kalS = freemem; freemem=freemem+30;
 intermediateL = freemem; freemem=freemem+16;
 intermediateR = freemem; freemem=freemem+16;
-
-quantB = 1;
 
 @slider
 
