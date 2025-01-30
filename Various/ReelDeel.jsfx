@@ -1,4 +1,4 @@
-Version: 1.0
+Version: 1.1
 desc:ReelDeel Tape Emulation (chmaha)
 author: chmaha
 about:
@@ -13,7 +13,7 @@ slider4:0.5<0,1,0.01>Flutter
 slider5:0.5<0,1,0.01>Flutter Speed
 slider6:0.5<0,1,0.01>Bias
 slider7:0.5<0,1,0.01>Head Bump
-slider8:0.5<0,1,0.01>Head Frequency
+slider8:68.75<25,200,0.01>Head Frequency (Hz)
 slider9:0.5<0,1,0.01>Output
 
 in_pin:left input
@@ -45,6 +45,8 @@ sweepL = $pi;sweepR = $pi;
 nextmaxL = 0.5;nextmaxR = 0.5;
 
 UINT32_MAX = 4294967295;
+fpdL = rand(UINT32_MAX);
+fpdR = rand(UINT32_MAX);
 
 @slider
 
@@ -55,7 +57,7 @@ D = slider4;
 E = slider5;
 F = slider6;
 G = slider7;
-H = slider8;
+H = sqrt((slider8-25)/175); // (H*H)*175.0)+25.0
 I = slider9;
 
 @block
@@ -136,7 +138,7 @@ inputSampleR = spl1;
       inputSampleL *= inputGain;
       inputSampleR *= inputGain;
     );
-    
+
 iirEncL = (iirEncL * (1.0 - iirEncFreq)) + (inputSampleL * iirEncFreq);
 highPart = ((inputSampleL-iirEncL)*2.848);
 highPart += avgEncL; avgEncL = (inputSampleL-iirEncL)*1.152;
@@ -166,10 +168,10 @@ dubly = abs(highPart);
   count = gcount;
   offset = flutDepth + (flutDepth * sin(sweepL));
   sweepL += nextmaxL * flutFrequency;
-  (sweepL > (M_PI*2.0)) ? (
-    sweepL -= M_PI*2.0;
+  (sweepL > ($pi*2.0)) ? (
+    sweepL -= $pi*2.0;
     flutA = 0.24 + (fpdL / UINT32_MAX * 0.74);
-    fpdL ^= fpdL << 13; fpdL ^= fpdL >> 17; fpdL ^= fpdL << 5;
+    fpdL = rand(UINT32_MAX);
     flutB = 0.24 + (fpdL / UINT32_MAX * 0.74);
     (abs(flutA-sin(sweepR+nextmaxR))<abs(flutB-sin(sweepR+nextmaxR))) ? nextmaxL = flutA : nextmaxL = flutB;
   );
@@ -180,10 +182,10 @@ dubly = abs(highPart);
   count = gcount;
   offset = flutDepth + (flutDepth * sin(sweepR));
   sweepR += nextmaxR * flutFrequency;
-  (sweepR > (M_PI*2.0)) ? (
-    sweepR -= M_PI*2.0;
+  (sweepR > ($pi*2.0)) ? (
+    sweepR -= $pi*2.0;
     flutA = 0.24 + (fpdR / UINT32_MAX * 0.74);
-    fpdR ^= fpdR << 13; fpdR ^= fpdR >> 17; fpdR ^= fpdR << 5;
+    fpdR = rand(UINT32_MAX);
     flutB = 0.24 + (fpdR / UINT32_MAX * 0.74);
     (abs(flutA-sin(sweepL+nextmaxL))<abs(flutB-sin(sweepL+nextmaxL))) ? nextmaxR = flutA : nextmaxR = flutB;
   );
@@ -318,7 +320,7 @@ lastSampleL = intermediateL[0];
   : lastSampleR = 0.2491717+(lastSampleR*0.7390851);
 ); wasPosClipR = 0;
 (inputSampleR>0.9549925859) ? (wasPosClipR=1;inputSampleR=0.7058208+(lastSampleR*0.2609148));
-(wasNegClipR == 1) ? ( 
+(wasNegClipR == 1) ? (
   (inputSampleR > lastSampleR) ? lastSampleR=-0.7058208+(inputSampleR*0.2609148)
   : lastSampleR=-0.2491717+(lastSampleR*0.7390851);
 ); wasNegClipR = 0;
