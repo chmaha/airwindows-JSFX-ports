@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="b273832b6f963026469e1de18358029d70b2c368">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="65150403f2e9f0e8cfcb7ba22fc297418d1efe29">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1228,6 +1228,9 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2025-01-30T11:17:51Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/b273832b6f963026469e1de18358029d70b2c368/Various/ReelDeel.jsfx</source>
+      </version>
+      <version name="1.1" author="chmaha" time="2025-01-30T12:40:22Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/65150403f2e9f0e8cfcb7ba22fc297418d1efe29/Various/ReelDeel.jsfx</source>
       </version>
     </reapack>
     <reapack name="Reelty.jsfx" type="effect" desc="Reelty Tape Emulation (chmaha)">
