@@ -7,13 +7,13 @@ about:
   JSFX version released under GPLv3 license
 
 slider1:0.5<0,1,0.01>Treble Freq
-slider2:0.5<0,1,0.01>Treble
+slider2:0.5<0,1,0.01>Treble Amount
 slider3:0.5<0,1,0.01>Treble Bandwidth
 slider4:0.5<0,1,0.01>High-Mid Freq
-slider5:0.5<0,1,0.01>High-Mid
+slider5:0.5<0,1,0.01>High-Mid Amount
 slider6:0.5<0,1,0.01>High-Mid Bandwidth
 slider7:0.5<0,1,0.01>Low-Mid Freq
-slider8:0.5<0,1,0.01>Low-Mid
+slider8:0.5<0,1,0.01>Low-Mid Amount
 slider9:0.5<0,1,0.01>Low-Mid Bandwidth
 slider10:1<0,1,0.01>Dry/Wet
 
