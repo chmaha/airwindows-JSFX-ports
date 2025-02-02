@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="9073ed3b8dcb287ee00e51f0e464556d61daee0d">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="aec0822f6a0d1a8301d71bc52fccccd0547a882a">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -988,6 +988,20 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2025-02-02T13:04:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/9073ed3b8dcb287ee00e51f0e464556d61daee0d/Various/FlutterNutter2.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="FrostHype.jsfx" type="effect" desc="FrostHype Soft Clipper (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Hypersoft" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Hypersoft (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-02T17:13:51Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/aec0822f6a0d1a8301d71bc52fccccd0547a882a/Various/FrostHype.jsfx</source>
       </version>
     </reapack>
     <reapack name="Heft.jsfx" type="effect" desc="Heft Bass (chmaha)">
