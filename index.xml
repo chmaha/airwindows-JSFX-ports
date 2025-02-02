@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="e0a7afe919653bf7d14b86039b8f2f74fdb7bfbb">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="ab03cdfc1b8652e814bae937ac1ec0afc87497cf">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1097,7 +1097,7 @@
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/MadHatter.jsfx</source>
       </version>
     </reapack>
-    <reapack name="MadHatter2.jsfx" type="effect" desc="Mad Hatter 2 Compressor (chmaha)">
+    <reapack name="MadHatter2.jsfx" type="effect" desc="Mad Hatter 2 Compressor/Gate (chmaha)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -1108,7 +1108,7 @@
 ]]></description>
       </metadata>
       <version name="1.0" author="chmaha" time="2025-02-02T17:47:37Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/e0a7afe919653bf7d14b86039b8f2f74fdb7bfbb/Various/MadHatter2.jsfx</source>
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/ab03cdfc1b8652e814bae937ac1ec0afc87497cf/Various/MadHatter2.jsfx</source>
       </version>
     </reapack>
     <reapack name="Magnetique.jsfx" type="effect" desc="Magnétique Tape Emulation (chmaha)">
