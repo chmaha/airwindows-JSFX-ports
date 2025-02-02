@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="ac931c5f815c559dc4a04235813564b4ca6a0707">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="975ce55d68496c33f7ae6d6c087dc908b205b9b0">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1132,6 +1132,20 @@
       </version>
       <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/MuTube.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="NogginKnock.jsfx" type="effect" desc="Noggin Knock Head Bump (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "DubSub2" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/DubSub2 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-02T11:44:27Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/975ce55d68496c33f7ae6d6c087dc908b205b9b0/Various/NogginKnock.jsfx</source>
       </version>
     </reapack>
     <reapack name="Oxonia.jsfx" type="effect" desc="Oxonia Compressor (chmaha)">
