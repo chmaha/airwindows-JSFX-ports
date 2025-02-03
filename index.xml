@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="c312b07f1c40e24a007cca82ecf8962dce443115">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="4048a53238c01bee75fdeb0cf6b674b9a3737eb9">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1357,6 +1357,20 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2024-01-07T13:29:46Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/ded5deee6a7f00bfd83bfccf619706f874d3503c/Various/Saccharine.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="SAW3.jsfx" type="effect" desc="SAW3 — Seriously Amazing Widener 3 (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Srsly3" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Srsly3 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-03T12:48:40Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/4048a53238c01bee75fdeb0cf6b674b9a3737eb9/Various/SAW3.jsfx</source>
       </version>
     </reapack>
     <reapack name="SeriouslyAmazingWidener.jsfx" type="effect" desc="SAW — Seriously Amazing Widener (chmaha)">
