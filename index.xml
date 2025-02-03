@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="4da07e25a2844087f7f11775b1e0f0641f08b46b">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="25eb2ee7018be94ba68221649673f969e64f4d5f">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -15,7 +15,7 @@
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Consoles/Analog-a-licious.jsfx</source>
       </version>
     </reapack>
-    <reapack name="ChloeConsoleColors.jsfx" type="effect" desc="Chloé Console Colors (chmaha)">
+    <reapack name="ChloeConsoleColors.jsfx" type="effect" desc="Chloe Console Colors (chmaha)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -26,7 +26,7 @@
 ]]></description>
       </metadata>
       <version name="1.0" author="chmaha" time="2025-02-03T14:16:20Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/4da07e25a2844087f7f11775b1e0f0641f08b46b/Consoles/ChloeConsoleColors.jsfx</source>
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/25eb2ee7018be94ba68221649673f969e64f4d5f/Consoles/ChloeConsoleColors.jsfx</source>
       </version>
     </reapack>
     <reapack name="CoraMeta.jsfx" type="effect" desc="Cora Analog Circuitry (chmaha)">
