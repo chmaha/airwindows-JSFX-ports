@@ -1,5 +1,5 @@
-NoIndex: true
-desc:Clio Console Emulations (chmaha)
+Version: 1.0
+desc:Chloé Console Colors (chmaha)
 author: chmaha
 about:
   Uses DSP from airwindows "BussColors4" by Chris Johnson
@@ -27,7 +27,7 @@ c = freemem; freemem += 35;
 g = freemem; freemem += 9; 
 outg = freemem; freemem += 9;  
 
-count = 0; while(count < 34) (c[count] = count;x +=1;);
+count = 0; while(count < 34) (c[count] = count;count += 1;);
   g[1] = pow(10.0, -5.2 / 14.0); 
   g[2] = pow(10.0, -6.2 / 14.0); 
   g[3] = pow(10.0, -2.9 / 14.0); 
@@ -64,14 +64,13 @@ overallscale *= srate;
 (overallscale < 1.0) ? overallscale = 1.0;
 (overallscale > 4.5) ? overallscale = 4.5;
 maxConvolutionBufferSize = (34.0 * overallscale) | 0; 
-count = 0; while(count < 34) (c[count] = (count * overallscale) | 0; x+=1;);
+count = 0; while(count < 34) (c[count] = (count * overallscale) | 0; count += 1;);
 offsetA = 3;
 dynamicconvL = 3.0;
 dynamicconvR = 3.0;
 gain = 0.436;
 outgain = 1.0;
 
-console = slider1;
 (slider1 == 0) ? (offsetA = 4; gain = g[1]; outgain = outg[1];)//Dark (Focusrite)
 : (slider1 == 1) ? (offsetA = 3; gain = g[2]; outgain = outg[2];) //Rock (SSL)
 : (slider1 == 2) ? (offsetA = 5; gain = g[3]; outgain = outg[3];) //Lush (Neve)
@@ -90,8 +89,6 @@ wet = DryWet;
 @sample
 inputSampleL = spl0;
 inputSampleR = spl1;
-
-
 
 drySampleL = inputSampleL;
 drySampleR = inputSampleR;
@@ -767,10 +764,6 @@ drySampleR = inputSampleR;
       inputSampleL = (inputSampleL * wet) + (drySampleL * (1.0-wet));
       inputSampleR = (inputSampleR * wet) + (drySampleR * (1.0-wet));
     );
-
-
- 
-
 
 spl0 = inputSampleL;
 spl1 = inputSampleR;
