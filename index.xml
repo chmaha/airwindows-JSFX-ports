@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="ab03cdfc1b8652e814bae937ac1ec0afc87497cf">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="c312b07f1c40e24a007cca82ecf8962dce443115">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -842,6 +842,20 @@
       </version>
       <version name="1.4" author="chmaha" time="2024-01-19T17:10:04Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/340cbc25a38e70f35b5d04fbd29be3a7480af770/Various/Discordia.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Dolbify.jsfx" type="effect" desc="Dolbify Compressor (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Dubly3" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Dubly3 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-03T11:07:38Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/c312b07f1c40e24a007cca82ecf8962dce443115/Various/Dolbify.jsfx</source>
       </version>
     </reapack>
     <reapack name="Domar.jsfx" type="effect" desc="Domar Brightness Acceleration Limiter (chmaha)">
