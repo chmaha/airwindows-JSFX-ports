@@ -1,0 +1,12 @@
+@description Horizon Console (chmaha)
+@author chmaha
+@version 1.0
+@changelog
+  Initial release
+@metapackage
+@provides
+  HorizonChannel.jsfx
+  HorizonBuss.jsfx
+@about
+  This jsfx analog circuitry emulation uses DSP from airwindows Interstage.
+  Also included is the Cora project template with plugins already in place (requires ELSA and RCGain to be installed)
