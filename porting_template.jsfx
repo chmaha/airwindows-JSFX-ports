@@ -1,0 +1,51 @@
+Version: 1.0
+desc:??? (chmaha)
+author: chmaha
+about:
+  Uses DSP from airwindows "???" by Chris Johnson
+  https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/??? (MIT License)
+  JSFX version released under GPLv3 license
+
+slider1:0.5<0,1,0.01>SliderName1
+slider2:0.5<0,1,0.01>SliderName2
+slider3:0.5<0,1,0.01>SliderName3
+slider4:0.5<0,1,0.01>SliderName4
+slider5:0.5<0,1,0.01>SliderName5
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+freemem = 0;
+
+//UINT32_MAX = 4294967295;
+//fpdL = rand(UINT32_MAX);
+//fpdR = rand(UINT32_MAX);
+
+@slider
+
+A = slider1;
+B = slider2;
+C = slider3;
+D = slider4;
+E = slider5;
+
+@block
+overallscale = 1.0;
+overallscale /= 44100.0;
+overallscale *= srate;
+
+@sample
+inputSampleL = spl0;
+inputSampleR = spl1;
+
+
+//rest of code here
+
+//fpdL = rand(UINT32_MAX);
+//fpdR = rand(UINT32_MAX);
+
+spl0 = inputSampleL;
+spl1 = inputSampleR;
