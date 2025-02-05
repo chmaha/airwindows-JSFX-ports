@@ -1,5 +1,7 @@
 # How to Port Airwindows to JSFX
 
+Use https://github.com/chmaha/airwindows-JSFX-ports/blob/main/porting_template.jsfx as a starter template (adapting name of plugin, author and license as appropriate). Be sure to fill in the original source code link.
+
 ## name_of_plugin.cpp (e.g. Dubly3.cpp)
 
 1. Add the correct number of sliders, default values, and labels (found in `getParameterName`).
