@@ -1,0 +1,140 @@
+<h1 id="how-to-port-airwindows-to-jsfx">How to Port Airwindows to
+JSFX</h1>
+<h2 id="name_of_plugin.cpp-e.g.-dubly3.cpp">name_of_plugin.cpp
+(e.g. Dubly3.cpp)</h2>
+<ol type="1">
+<li><p>Add the correct number of sliders, default values, and labels
+(found in <code>getParameterName</code>).</p></li>
+<li><p><strong>Double-check if a slider is not in the 0-1 range</strong>
+(found in <code>getParameterDisplay</code>).</p>
+<ul>
+<li>If so, determine the range, use it for the slider, and reverse it in
+the <code>@slider</code> section so the letter remains in the 0-1
+range.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>B<span class="op">*</span>B<span class="op">*</span><span class="fl">175.0</span><span class="op">)+</span><span class="fl">25.0</span> <span class="co">// in getParameterDisplay</span></span></code></pre></div>
+<p>Becomes:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> sqrt<span class="op">((</span>slider2<span class="op">-</span><span class="dv">25</span><span class="op">)/</span><span class="dv">175</span><span class="op">);</span></span></code></pre></div>
+<p>Otherwise, simply use the format:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>@slider</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> slider1<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> slider2<span class="op">;</span> <span class="co">// etc.</span></span></code></pre></div></li>
+<li><p>Add any other non-zero variables to the <code>@init</code>
+section.</p></li>
+</ol>
+<h2 id="name_of_plugin.h-e.g.-dubly3.h">name_of_plugin.h
+(e.g. Dubly3.h)</h2>
+<ol type="1">
+<li><p>Scroll down to the <code>private:</code> section.</p></li>
+<li><p>Add any arrays using <code>freemem</code>, e.g.:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bezA<span class="op">[</span><span class="dv">13</span><span class="op">];</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bezB<span class="op">[</span><span class="dv">13</span><span class="op">];</span></span></code></pre></div>
+<p>becomes:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>freemem <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bezA <span class="op">=</span> freemem<span class="op">;</span> freemem <span class="op">+=</span> <span class="dv">13</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>bezB <span class="op">=</span> freemem<span class="op">;</span> freemem <span class="op">+=</span> <span class="dv">13</span><span class="op">;</span> <span class="co">// etc.</span></span></code></pre></div></li>
+<li><p>Convert any enums to values starting at <code>0</code> and add
+them to <code>@init</code>. Use the <code>xxx_total</code> final number
+as the freemem addition (no need to set that particular
+variable).</p></li>
+</ol>
+<h2
+id="name_of_pluginproc.cpp-e.g.-dubly3proc.cpp">name_of_pluginProc.cpp
+(e.g. Dubly3Proc.cpp)</h2>
+<h3 id="block-section"><code>@block</code> Section</h3>
+<p>Paste the section <code>processDoubleReplacing</code> up until
+<code>while (--sampleFrames &gt;= 0)</code>.</p>
+<p>Ignore:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="dt">double</span><span class="op">*</span> in1  <span class="op">=</span>  inputs<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">double</span><span class="op">*</span> in2  <span class="op">=</span>  inputs<span class="op">[</span><span class="dv">1</span><span class="op">];</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">double</span><span class="op">*</span> out1 <span class="op">=</span> outputs<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="dt">double</span><span class="op">*</span> out2 <span class="op">=</span> outputs<span class="op">[</span><span class="dv">1</span><span class="op">];</span></span></code></pre></div>
+<p>Ignore:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>fabs<span class="op">(</span>inputSampleL<span class="op">)&lt;</span><span class="fl">1.18e-23</span><span class="op">)</span> inputSampleL <span class="op">=</span> fpdL <span class="op">*</span> <span class="fl">1.18e-17</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>fabs<span class="op">(</span>inputSampleR<span class="op">)&lt;</span><span class="fl">1.18e-23</span><span class="op">)</span> inputSampleR <span class="op">=</span> fpdR <span class="op">*</span> <span class="fl">1.18e-17</span><span class="op">;</span></span></code></pre></div>
+<h3 id="sample-section"><code>@sample</code> Section</h3>
+<p>Paste the section starting
+<code>while (--sampleFrames &gt;= 0)</code>.</p>
+<p>Replace:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> inputSampleL <span class="op">=</span> <span class="op">*</span>in1<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> inputSampleR <span class="op">=</span> <span class="op">*</span>in2<span class="op">;</span></span></code></pre></div>
+<p>With:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>inputSampleL <span class="op">=</span> spl0<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>inputSampleR <span class="op">=</span> spl1<span class="op">;</span></span></code></pre></div>
+<p>Replace:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fpdL <span class="op">^=</span> fpdL <span class="op">&lt;&lt;</span> <span class="dv">13</span><span class="op">;</span> fpdL <span class="op">^=</span> fpdL <span class="op">&gt;&gt;</span> <span class="dv">17</span><span class="op">;</span> fpdL <span class="op">^=</span> fpdL <span class="op">&lt;&lt;</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fpdR <span class="op">^=</span> fpdR <span class="op">&lt;&lt;</span> <span class="dv">13</span><span class="op">;</span> fpdR <span class="op">^=</span> fpdR <span class="op">&gt;&gt;</span> <span class="dv">17</span><span class="op">;</span> fpdR <span class="op">^=</span> fpdR <span class="op">&lt;&lt;</span> <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<p>With:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fpdL <span class="op">=</span> rand<span class="op">(</span>UINT32_MAX<span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fpdR <span class="op">=</span> rand<span class="op">(</span>UINT32_MAX<span class="op">);</span> <span class="co">// Set UINT32_MAX = 4294967295; in @init as necessary</span></span></code></pre></div>
+<p>But only if <code>fpdL</code> and <code>fpdR</code> are used to
+generate other values. If not, these lines can simply be deleted.</p>
+<p>Replace:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>out1 <span class="op">=</span> inputSampleL<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>out2 <span class="op">=</span> inputSampleR<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>in1<span class="op">++;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>in2<span class="op">++;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>out1<span class="op">++;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>out2<span class="op">++;</span></span></code></pre></div>
+<p>With:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>spl0 <span class="op">=</span> inputSampleL<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>spl1 <span class="op">=</span> inputSampleR<span class="op">;</span></span></code></pre></div>
+<h2 id="conversions-findreplace-where-possible">Conversions
+(Find/Replace Where Possible)</h2>
+<ul>
+<li>Remove all <code>double</code>, <code>int</code> references</li>
+<li><code>getSampleRate()</code> → <code>srate</code></li>
+<li><code>M_PI</code> → <code>$pi</code></li>
+<li><code>M_PI_2</code> → <code>$pi/2</code></li>
+<li><code>fabs</code> → <code>abs</code></li>
+<li><code>fmax</code> → <code>max</code></li>
+<li><code>fmin</code> → <code>min</code></li>
+<li><code>++</code> → <code>+=1</code></li>
+<li><code>--</code> → <code>-=1</code></li>
+<li><code>e</code> → <code>*10^</code></li>
+<li><code>true</code> → <code>1</code></li>
+<li><code>false</code> → <code>0</code></li>
+<li><code>if...else</code> → ternary e.g.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">==</span> <span class="dv">3</span><span class="op">)</span> y <span class="op">=</span> y <span class="op">*</span> c<span class="op">;</span> <span class="cf">else</span> y <span class="op">=</span> <span class="op">-</span>c<span class="op">;</span><span class="ch">&#39;</span></span></code></pre></div>
+<p>becomes:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>x <span class="op">==</span> <span class="dv">3</span><span class="op">)</span> <span class="op">?</span> y <span class="op">=</span> y<span class="op">*</span>c <span class="op">:</span> y <span class="op">=</span> <span class="op">-</span>c<span class="op">;</span></span></code></pre></div>
+<ul>
+<li><code>{}</code> → <code>();</code></li>
+<li><code>for</code> loops → <code>while</code> loops
+(e.g. <code>count = 1; while () (code here; count+=1;);</code>)</li>
+<li><code>switch</code> statements → series of ternary equivalents</li>
+<li>and so on…</li>
+</ul>
+<h2 id="rare-cases">Rare Cases</h2>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>VstInt32 inFramesToProcess <span class="op">=</span> sampleFrames<span class="op">;</span> <span class="co">// in processDoubleReplacing</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> buf <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span>sampleFrames<span class="op">/</span>inFramesToProcess<span class="op">;</span> <span class="co">// in while (--sampleFrames &gt;= 0)</span></span></code></pre></div>
+<p>Becomes:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>@block</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sample_index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>@sample</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>sample_index <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>samples_left <span class="op">=</span> samplesblock <span class="op">-</span> sample_index<span class="op">;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>buf <span class="op">=</span> samples_left<span class="op">/</span>samplesblock<span class="op">;</span></span></code></pre></div>
+<h2 id="final-checks">Final Checks</h2>
+<ul>
+<li>Use the <strong>REAPER JS Development Environment</strong> to check
+for coding errors, including verifying that all custom variables have
+<code>ref value &gt;1</code>; otherwise, they can be safely
+removed.</li>
+<li><strong>JSFX does not distinguish between upper and lower case
+letters</strong>, so rename variables as necessary.</li>
+</ul>
