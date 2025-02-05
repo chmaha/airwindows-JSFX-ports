@@ -7,24 +7,37 @@
    - If so, determine the range, use it for the slider, and reverse it in the `@slider` section so the letter remains in the 0-1 range.
    
    Example:
-   ```cpp
+   ```c
    (B*B*175.0)+25.0 // in getParameterDisplay
    ```
    Becomes:
-   ```js
+   ```c
    B = sqrt((slider2-25)/175);
    ```
-3. Add any other non-zero variables to the `@init` section.
+   Otherwise, simply use the format:
+   ```c
+   @slider
+   
+   A = slider1;
+   B = slider2; // etc.
+   ```
+4. Add any other non-zero variables to the `@init` section.
 
 ## name_of_plugin.h (e.g. Dubly3.h)
 
 1. Scroll down to the `private:` section.
-2. Add any arrays using `@init freemem`, e.g.:
-   ```js
-   bez = freemem;
-   freemem += 13;
+2. Add any arrays using `freemem`, e.g.:
+   ```cpp
+   bezA[13];
+   bezB[13];
    ```
-3. Convert any enums to values starting at `0` and add them to `@init`.
+   becomes:
+   ```c
+   freemem = 0;
+   bezA = freemem; freemem += 13;
+   bezB = freemem; freemem += 13; // etc.
+   ```
+4. Convert any enums to values starting at `0` and add them to `@init`. Use the `xxx_total` final number as the freemem addition (no need to set that particular variable).
 
 ## name_of_pluginProc.cpp (e.g. Dubly3Proc.cpp)
 
@@ -33,27 +46,57 @@ Paste the section `processDoubleReplacing` up until `while (--sampleFrames >= 0)
 
 Ignore:
 ```cpp
+ double* in1  =  inputs[0];
+ double* in2  =  inputs[1];
+ double* out1 = outputs[0];
+ double* out2 = outputs[1];
+```
+Ignore:
+```c
 if (fabs(inputSampleL)<1.18e-23) inputSampleL = fpdL * 1.18e-17;
 if (fabs(inputSampleR)<1.18e-23) inputSampleR = fpdR * 1.18e-17;
 ```
 
 ### `@sample` Section
-Paste the section `while (--sampleFrames >= 0)`.
+Paste the section starting `while (--sampleFrames >= 0)`.
 
 Replace:
 ```cpp
+double inputSampleL = *in1;
+double inputSampleR = *in2;
+```
+With:
+```c
+inputSampleL = spl0;
+inputSampleR = spl1;
+```
+
+Replace:
+```c
 fpdL ^= fpdL << 13; fpdL ^= fpdL >> 17; fpdL ^= fpdL << 5;
 fpdR ^= fpdR << 13; fpdR ^= fpdR >> 17; fpdR ^= fpdR << 5;
 ```
 With:
-```js
+```c
 fpdL = rand(UINT32_MAX);
 fpdR = rand(UINT32_MAX); // Set UINT32_MAX = 4294967295; in @init as necessary
 ```
-Only if `fpdL` and `fpdR` are used to generate other values. Often, these lines can simply be deleted just above:
+But only if `fpdL` and `fpdR` are used to generate other values. If not, these lines can simply be deleted.
+
+Replace:
 ```cpp
 *out1 = inputSampleL;
 *out2 = inputSampleR;
+
+in1++;
+in2++;
+out1++;
+out2++;
+```
+With:
+```c
+spl0 = inputSampleL;
+spl1 = inputSampleR;
 ```
 
 ## Conversions (Find/Replace Where Possible)
@@ -69,10 +112,18 @@ Only if `fpdL` and `fpdR` are used to generate other values. Often, these lines 
 - `e` → `*10^`
 - `true` → `1`
 - `false` → `0`
-- `if...else` → `()? : ()`
+- `if...else` → ternary e.g.
+```cpp
+if (x == 3) y = y * c; else y = -c;'
+```
+becomes:
+```c
+(x == 3) ? y = y*c : y = -c;
+```
 - `{}` → `();`
 - `for` loops → `while` loops (e.g. `count = 1; while () (code here; count+=1;);`)
-- `switch` statements → series of `if/else`
+- `switch` statements → series of ternary equivalents
+- and so on...
 
 ## Rare Cases
 
@@ -83,7 +134,7 @@ VstInt32 inFramesToProcess = sampleFrames; // in processDoubleReplacing
 double buf = (double)sampleFrames/inFramesToProcess; // in while (--sampleFrames >= 0)
 ```
 Becomes:
-```js
+```c
 @block
 sample_index = 0;
 
