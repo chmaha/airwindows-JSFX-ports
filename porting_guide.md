@@ -1,6 +1,6 @@
 # How to Port Airwindows to JSFX
 
-Use https://github.com/chmaha/airwindows-JSFX-ports/blob/main/porting_template.jsfx as a starter template (adapting name of plugin, author and license as appropriate). Be sure to fill in the original source code link.
+Use https://github.com/chmaha/airwindows-JSFX-ports/blob/main/porting_template.jsfx as a starter template (adapting name of plugin, author and license as appropriate) and be sure to complete the original airwindows plugin name and source code link (by replacing the ??? placeholders).
 
 ## name_of_plugin.cpp (e.g. Dubly3.cpp)
 
