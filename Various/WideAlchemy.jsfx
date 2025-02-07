@@ -1,0 +1,43 @@
+Version: 1.0
+desc:Wide Alchemy (chmaha)
+author: chmaha
+about:
+  Uses DSP from airwindows "SweetWide" by Chris Johnson
+  https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/SweetWide (MIT License)
+  JSFX version released under GPLv3 license
+
+slider1:0.5<0,1,0.01>Un/Wide
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+
+@slider
+
+A = slider1;
+
+@block
+
+blend = -(A-0.5);
+
+@sample
+inputSampleL = spl0;
+inputSampleR = spl1;
+
+outL = 0.0;
+outR = 0.0;
+
+(inputSampleL > 0.0) ? outL = sqrt(inputSampleL*abs(inputSampleR));
+(inputSampleL < 0.0) ? outL = -sqrt(-inputSampleL*abs(inputSampleR));
+
+(inputSampleR > 0.0) ? outR = sqrt(inputSampleR*abs(inputSampleL));
+(inputSampleR < 0.0) ? outR = -sqrt(-inputSampleR*abs(inputSampleL));
+
+inputSampleL = (outL * blend) + (inputSampleL * (1.0-blend));
+inputSampleR = (outR * blend) + (inputSampleR * (1.0-blend));
+
+spl0 = inputSampleL;
+spl1 = inputSampleR;
