@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="7e3dfc32ed3b066f3567fc537047fc49a479ff06">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="998fa9802e496c094f6f19584e3f591a702c2e67">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -837,6 +837,20 @@
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/1befb663e2faf08e585b227d0c30549eaf23f2a4/Various/ClippySquish.jsfx</source>
       </version>
     </reapack>
+    <reapack name="Convolvulus.jsfx" type="effect" desc="Convolvulus (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "LRConvolve2" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/LRConvolve2 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-07T10:39:38Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/da0670699f400f836e8f33716dc866f466a7cb59/Various/Convolvulus.jsfx</source>
+      </version>
+    </reapack>
     <reapack name="CoralBones.jsfx" type="effect" desc="Coral Bones Bass (chmaha)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
@@ -1091,6 +1105,20 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2025-02-01T14:32:01Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/92648d0e56e0a14fec34bfdde92b99e72feb534b/Various/LonelyCurve.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Luminator.jsfx" type="effect" desc="Luminator Waveshaper (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Inflamer" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Inflamer (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-07T12:09:31Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/998fa9802e496c094f6f19584e3f591a702c2e67/Various/Luminator.jsfx</source>
       </version>
     </reapack>
     <reapack name="LunaEQ.jsfx" type="effect" desc="Luna EQ (chmaha)">
@@ -1598,6 +1626,20 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2024-03-19T11:53:54Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/6d20f6f14741ddad919684741bb41817991ea2f6/Various/Walkety.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="WideAlchemy.jsfx" type="effect" desc="Wide Alchemy (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "SweetWide" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/SweetWide (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-07T10:39:38Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/da0670699f400f836e8f33716dc866f466a7cb59/Various/WideAlchemy.jsfx</source>
       </version>
     </reapack>
   </category>
