@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="998fa9802e496c094f6f19584e3f591a702c2e67">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="61d3f5aa1c1e708f77f157521543e2d3fc6a8251">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1387,6 +1387,20 @@
       </version>
       <version name="1.1" author="chmaha" time="2025-01-30T12:40:22Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/65150403f2e9f0e8cfcb7ba22fc297418d1efe29/Various/ReelDeel.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Reelism.jsfx" type="effect" desc="Reelism (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "ToTape7" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/ToTape7 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-02-07T16:17:52Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/61d3f5aa1c1e708f77f157521543e2d3fc6a8251/Various/Reelism.jsfx</source>
       </version>
     </reapack>
     <reapack name="Reelty.jsfx" type="effect" desc="Reelty Tape Emulation (chmaha)">
