@@ -116,7 +116,7 @@ spl1 = inputSampleR;
 - `false` → `0`
 - `if...else` → ternary e.g.
 ```cpp
-if (x == 3) y = y * c; else y = -c;'
+if (x == 3) y = y * c; else y = -c;
 ```
 becomes:
 ```c
