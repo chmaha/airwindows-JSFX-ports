@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="22a7a3e9c5a0574b332a7b27d8f4ab3db210de97">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="c8aa8a1ad65527ddf9b51884bc9e38e3bdb2717c">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -850,6 +850,9 @@
       <version name="1.0" author="chmaha" time="2025-02-07T10:39:38Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/da0670699f400f836e8f33716dc866f466a7cb59/Various/Convolvulus.jsfx</source>
       </version>
+      <version name="1.1" author="chmaha" time="2025-02-21T09:31:47Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/c8aa8a1ad65527ddf9b51884bc9e38e3bdb2717c/Various/Convolvulus.jsfx</source>
+      </version>
     </reapack>
     <reapack name="CoralBones.jsfx" type="effect" desc="Coral Bones Bass (chmaha)">
       <metadata>
@@ -1654,6 +1657,9 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2025-02-07T10:39:38Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/da0670699f400f836e8f33716dc866f466a7cb59/Various/WideAlchemy.jsfx</source>
+      </version>
+      <version name="1.1" author="chmaha" time="2025-02-21T09:31:47Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/c8aa8a1ad65527ddf9b51884bc9e38e3bdb2717c/Various/WideAlchemy.jsfx</source>
       </version>
     </reapack>
   </category>
