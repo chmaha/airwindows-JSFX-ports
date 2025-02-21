@@ -1,4 +1,4 @@
-Version: 1.0
+Version: 1.1
 desc:Wide Alchemy (chmaha)
 author: chmaha
 about:
@@ -6,7 +6,8 @@ about:
   https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/SweetWide (MIT License)
   JSFX version released under GPLv3 license
 
-slider1:0.5<0,1,0.01>Un/Wide
+slider1:0<0,1,0.01>Soar
+slider2:0.5<0,1,0.01>Un/Wide
 
 in_pin:left input
 in_pin:right input
@@ -18,10 +19,12 @@ out_pin:right output
 @slider
 
 A = slider1;
+B = slider2;
 
 @block
 
-blend = -(A-0.5);
+soar = 0.3-(A*0.3);
+blend = -(B-0.5);
 
 @sample
 inputSampleL = spl0;
@@ -30,11 +33,12 @@ inputSampleR = spl1;
 outL = 0.0;
 outR = 0.0;
 
-(inputSampleL > 0.0) ? outL = sqrt(inputSampleL*abs(inputSampleR));
-(inputSampleL < 0.0) ? outL = -sqrt(-inputSampleL*abs(inputSampleR));
-
-(inputSampleR > 0.0) ? outR = sqrt(inputSampleR*abs(inputSampleL));
-(inputSampleR < 0.0) ? outR = -sqrt(-inputSampleR*abs(inputSampleL));
+inL = abs(inputSampleL)+(soar*soar);
+inR = abs(inputSampleR)+(soar*soar);
+(inputSampleL > 0.0) ? outL = max((sqrt(inR/inL)*inL)-soar,0.0);
+(inputSampleL < 0.0) ? outL = min((-sqrt(inR/inL)*inL)+soar,0.0);
+(inputSampleR > 0.0) ? outR = max((sqrt(inL/inR)*inR)-soar,0.0);
+(inputSampleR < 0.0) ? outR = min((-sqrt(inL/inR)*inR)+soar,0.0);
 
 inputSampleL = (outL * blend) + (inputSampleL * (1.0-blend));
 inputSampleR = (outR * blend) + (inputSampleR * (1.0-blend));

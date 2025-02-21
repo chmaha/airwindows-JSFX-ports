@@ -1,4 +1,4 @@
-Version: 1.0
+Version: 1.1
 desc:Convolvulus (chmaha)
 author: chmaha
 about:
@@ -26,24 +26,20 @@ overallscale = 1.0;
 overallscale /= 44100.0;
 overallscale *= srate;
 
-smooth = pow(A,4)*(0.5/overallscale);
-channel = B;
+double soar = 0.3-(A*0.3);
 
 @sample
 inputSampleL = spl0;
 inputSampleR = spl1;
 
-carrier = inputSampleL;
-modulate = abs(inputSampleR);
-(channel > 0.5) ? (
-    carrier = inputSampleR;
-    modulate = abs(inputSampleL);
-);
-(iirSample < modulate) ? iirSample = modulate;
-modulate = (iirSample*smooth)+(modulate*(1.0-smooth));
-(carrier > 0.0) ? carrier = sqrt(carrier*modulate);
-(carrier < 0.0) ? carrier = -sqrt(-carrier*modulate);
-inputSampleL = inputSampleR = carrier;
+out = 0.0;
+inL = abs(inputSampleL)+(soar*soar);
+inR = abs(inputSampleR)+(soar*soar);		
+(inputSampleL > 0.0 && inputSampleR > 0.0) ? out = max((sqrt(inR/inL)*inL)-soar,0.0);
+(inputSampleL < 0.0 && inputSampleR > 0.0) ? out = min((-sqrt(inR/inL)*inL)+soar,0.0);
+(inputSampleL > 0.0 && inputSampleR < 0.0) ? out = min((-sqrt(inR/inL)*inL)+soar,0.0);
+(inputSampleL < 0.0 && inputSampleR < 0.0) ? out = max((sqrt(inR/inL)*inL)-soar,0.0);
+inputSampleL = inputSampleR = out;
 
 spl0 = inputSampleL;
 spl1 = inputSampleR;
