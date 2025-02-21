@@ -26,7 +26,7 @@ overallscale = 1.0;
 overallscale /= 44100.0;
 overallscale *= srate;
 
-double soar = 0.3-(A*0.3);
+soar = 0.3-(A*0.3);
 
 @sample
 inputSampleL = spl0;
