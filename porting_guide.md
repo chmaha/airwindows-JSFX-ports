@@ -39,7 +39,7 @@ Use https://github.com/chmaha/airwindows-JSFX-ports/blob/main/porting_template.j
    bezA = freemem; freemem += 13;
    bezB = freemem; freemem += 13; // etc.
    ```
-4. Convert any enums to values starting at `0` and add them to `@init`. Use the `xxx_total` final number as the freemem addition (no need to set that particular variable).
+4. Convert any enums to values starting at `0` and add them to `@init`. Use the `xxx_total` final number as the freemem addition (generally no need to set that particular variable unless it it referenced later in xxxProc.cpp).
 
 ## name_of_pluginProc.cpp (e.g. Dubly3Proc.cpp)
 
