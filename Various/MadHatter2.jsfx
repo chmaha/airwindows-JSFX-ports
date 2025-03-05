@@ -1,4 +1,4 @@
-Version: 1.0
+Version: 1.1
 desc:Mad Hatter 2 Compressor/Gate (chmaha)
 author: chmaha
 about:
@@ -33,6 +33,10 @@ B = slider2;
 C = slider3;
 D = slider4;
 E = slider5;
+F = slider6;
+G = slider7;
+H = slider8;
+
 
 @block
 overallscale = 1.0;
