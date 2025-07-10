@@ -27,8 +27,10 @@ Use https://github.com/chmaha/airwindows-JSFX-ports/blob/main/porting_template.j
 
 ## name_of_plugin.h (e.g. Dubly3.h)
 
-1. Scroll down to the `private:` section.
-2. Add any arrays using `freemem`, e.g.:
+1. Find the `public:` section
+2. Add any constants to the beginning of the `@init` section.
+3. Scroll down to the `private:` section.
+4. Add any arrays using `freemem`, e.g.:
    ```cpp
    bezA[13];
    bezB[13];
@@ -39,7 +41,7 @@ Use https://github.com/chmaha/airwindows-JSFX-ports/blob/main/porting_template.j
    bezA = freemem; freemem += 13;
    bezB = freemem; freemem += 13; // etc.
    ```
-4. Convert any enums to values starting at `0` and add them to `@init`. Use the `xxx_total` final number as the freemem addition (generally no need to set that particular variable unless it it referenced later in xxxProc.cpp).
+5. Convert any enums to values starting at `0` and add them to `@init`. Use the `xxx_total` final number as the freemem addition (generally no need to set that particular variable unless it it referenced later in xxxProc.cpp).
 
 ## name_of_pluginProc.cpp (e.g. Dubly3Proc.cpp)
 
