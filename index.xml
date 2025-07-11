@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="5fd00e2a0025d2f33768a4d69a6cdc1781d58b12">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="e7332b7191398b94ac7f5eb4f5d5c4b9a04a4b8a">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -632,6 +632,11 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Reverbs/PhiVerb.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="SonataReverb.jsfx" type="effect" desc="Sonata Reverb (chmaha)">
+      <version name="1.0" author="chmaha" time="2025-07-11T19:59:01Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/e7332b7191398b94ac7f5eb4f5d5c4b9a04a4b8a/Reverbs/SonataReverb.jsfx</source>
       </version>
     </reapack>
   </category>
