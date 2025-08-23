@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="ab3a734ba5402185910c307f42b4b892da311a6f">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="f7becae3a6d17efde1f1f785d3c4eedddfe0df64">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1197,7 +1197,7 @@
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/5fd00e2a0025d2f33768a4d69a6cdc1781d58b12/Various/MadHatter2.jsfx</source>
       </version>
     </reapack>
-    <reapack name="Magnetica.jsfx" type="effect" desc="Magnetica (chmaha)">
+    <reapack name="Magnetica.jsfx" type="effect" desc="Magnetica Tape Emulation (chmaha)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -1209,6 +1209,9 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2025-08-23T23:01:46Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/ab3a734ba5402185910c307f42b4b892da311a6f/Various/Magnetica.jsfx</source>
+      </version>
+      <version name="1.1" author="chmaha" time="2025-08-23T23:10:36Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/f7becae3a6d17efde1f1f785d3c4eedddfe0df64/Various/Magnetica.jsfx</source>
       </version>
     </reapack>
     <reapack name="Magnetique.jsfx" type="effect" desc="Magnétique Tape Emulation (chmaha)">
