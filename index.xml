@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="e7332b7191398b94ac7f5eb4f5d5c4b9a04a4b8a">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="ab3a734ba5402185910c307f42b4b892da311a6f">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1195,6 +1195,20 @@
       </version>
       <version name="1.1" author="chmaha" time="2025-03-05T22:10:31Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/5fd00e2a0025d2f33768a4d69a6cdc1781d58b12/Various/MadHatter2.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Magnetica.jsfx" type="effect" desc="Magnetica (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "TapeHack" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/TapeHack (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-08-23T23:01:46Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/ab3a734ba5402185910c307f42b4b892da311a6f/Various/Magnetica.jsfx</source>
       </version>
     </reapack>
     <reapack name="Magnetique.jsfx" type="effect" desc="Magnétique Tape Emulation (chmaha)">
