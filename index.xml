@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="63f0554f5ba7d573f9c4bc330c2b492af54b6639">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="860b95de34d7d4e866115279e005ac234337cd80">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -640,7 +640,7 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "kBeyond" by Chris Johnson\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "kBeyond" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/kBeyond (MIT License) Extra tonal shaping, modulation, and phase DSP by chmaha JSFX version released under GPLv3 license\par}
 }
 ]]></description>
       </metadata>
@@ -649,6 +649,9 @@
       </version>
       <version name="1.1" author="chmaha" time="2025-08-24T02:53:35Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/63f0554f5ba7d573f9c4bc330c2b492af54b6639/Reverbs/SonataReverb.jsfx</source>
+      </version>
+      <version name="1.2" author="chmaha" time="2025-08-24T17:20:05Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/860b95de34d7d4e866115279e005ac234337cd80/Reverbs/SonataReverb.jsfx</source>
       </version>
     </reapack>
   </category>
