@@ -1,8 +1,7 @@
-Version: 1.0
+Version: 1.1
 desc: Sonata Reverb (chmaha)
 author: chmaha
-about:
-Uses DSP from airwindows "kBeyond" by Chris Johnson
+about: Uses DSP from airwindows "kBeyond" by Chris Johnson
 https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/kBeyond (MIT License)
 JSFX version released under GPLv3 license
 
