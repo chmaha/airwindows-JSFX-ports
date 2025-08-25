@@ -1,5 +1,5 @@
-Version: 1.0
-desc:GrooveLens (chmaha)
+Version: 1.1
+desc:GrooveLens Metronome (chmaha)
 author: chmaha
 about:
   Uses DSP from airwindows "SoftClock" by Chris Johnson
@@ -151,7 +151,7 @@ barPos += 1;
     barPos=0;
     beatPos+=1;
     (beatPos > beatMax) ? beatPos=1;
-    
+
     curVol = beatAccent[beatPos];
     (curVol == 1) ? (
             beatColor = 1; // green
