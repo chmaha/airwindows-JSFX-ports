@@ -1,4 +1,4 @@
-Version: 1.1
+Version: 1.2
 desc:GrooveLens Metronome (chmaha)
 author: chmaha
 about:
@@ -16,7 +16,7 @@ slider5:0<0,1,0.01>BigBeat
 slider6:0.5<0,1,0.01>Accents
 slider7:0.5<0,1,0.01>Boost
 slider8:0.5<0,1,0.01>Speed
-slider9:1<0,1,1{Off,On}>Show Graphics
+slider9:0<0,3,1{Sound and Display ON,Sound ON | Display OFF,Sound OFF | Display ON}>Audiovisuals
 
 @init
 
@@ -141,11 +141,6 @@ rootSpeed = 1-(chaseSpeed*((1-H)+0.5)*4);
 pulseWidth = ((G*0.2)-((1-H)*0.03))/chaseSpeed;
 
 @sample
-beatCode == 0 ? (
-    // plugin disabled
-    spl0 = 0;
-    spl1 = 0;
-) : (
 barPos += 1;
 (barPos > bpmTarget) ? (
     barPos=0;
@@ -174,12 +169,17 @@ cond = (barPos < (pulseWidth+beatSwing[beatPos])) && (barPos > beatSwing[beatPos
 sinePos += inc;
 (sinePos > $pi*2) ? sinePos -= $pi*2;
 
+(beatCode == 0 || slider9 == 2) ? (
+    // plugin disabled
+    spl0 = 0;
+    spl1 = 0;
+) : (
 spl0 = sin(sin(sinePos)*inc*8);
 spl1 = spl0;
 );
 
 @gfx
-showGraphics = (slider9 > 0) && (beatCode > 0);
+showGraphics = (slider9 == 0 || slider9 == 2) && (beatCode > 0);
 
 gfx_setfont(1,"Arial",25);
 gfx_x = 170;
