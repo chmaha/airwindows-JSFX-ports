@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="860b95de34d7d4e866115279e005ac234337cd80">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="032900df279a8d9df01b16ace59a749f8a516228">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1086,6 +1086,20 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2025-02-02T17:13:51Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/aec0822f6a0d1a8301d71bc52fccccd0547a882a/Various/FrostHype.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="GrooveLens.jsfx" type="effect" desc="GrooveLens (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "SoftClock" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/SoftClock (MIT License) Further additions such as beat display and various improvements by chmaha JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-08-25T16:42:16Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/032900df279a8d9df01b16ace59a749f8a516228/Various/GrooveLens.jsfx</source>
       </version>
     </reapack>
     <reapack name="Heft.jsfx" type="effect" desc="Heft Bass (chmaha)">
