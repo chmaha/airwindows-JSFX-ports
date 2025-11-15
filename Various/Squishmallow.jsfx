@@ -6,8 +6,8 @@ about:
   https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Pressure6 (MIT License)
   JSFX version released under GPLv3 license
 
-slider1:0.5<0,1,0.01>Compress
-slider2:0.5<0,1,0.01>Ratio
+slider1:0<0,1,0.01>Compress
+slider2:1<0,1,0.01>Ratio
 
 in_pin:left input
 in_pin:right input
@@ -18,7 +18,6 @@ out_pin:right output
 
 muComp = 1.0;
 muSpd = 100.0;
-
 
 @slider
 
