@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="d40706ea35db091828292e7b4bdd25b72f4a01b4">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="0165e9fab17bab79e61f114a5392cf83cb2d8c32">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1618,7 +1618,7 @@
 ]]></description>
       </metadata>
       <version name="1.0" author="chmaha" time="2025-11-15T19:18:53Z">
-        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/d40706ea35db091828292e7b4bdd25b72f4a01b4/Various/Squishmallow.jsfx</source>
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0165e9fab17bab79e61f114a5392cf83cb2d8c32/Various/Squishmallow.jsfx</source>
       </version>
     </reapack>
     <reapack name="Stratos.jsfx" type="effect" desc="Stratos Brightness Control (chmaha)">
