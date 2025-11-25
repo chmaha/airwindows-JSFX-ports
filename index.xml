@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="0165e9fab17bab79e61f114a5392cf83cb2d8c32">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="62a78270c9ab77387448cb80bd8873fe42f26af7">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -962,7 +962,7 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Mastering" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Mastering (MIT License) JSFX version released under GPLv3 license\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "Mastering" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/Mastering2(MIT License) JSFX version released under GPLv3 license\par}
 }
 ]]></description>
       </metadata>
@@ -971,6 +971,9 @@
       </version>
       <version name="1.1" author="chmaha" time="2025-01-29T15:01:42Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/dafeada6727c70f841d3118aaff64e86a27e46b8/Various/Elemental.jsfx</source>
+      </version>
+      <version name="2.0" author="chmaha" time="2025-11-25T00:03:09Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/62a78270c9ab77387448cb80bd8873fe42f26af7/Various/Elemental.jsfx</source>
       </version>
     </reapack>
     <reapack name="Enyo.jsfx" type="effect" desc="Enyo Noise Oscillator (chmaha)">
