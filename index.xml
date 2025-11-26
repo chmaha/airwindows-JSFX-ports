@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="62a78270c9ab77387448cb80bd8873fe42f26af7">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="5eb4d0203aa7005d62b72a28499ee98f9723550a">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1411,6 +1411,20 @@
       </version>
       <version name="1.4" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/port-and-lemon.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Possessed.jsfx" type="effect" desc="Possessed Waveshaper (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "mojo" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/mojo (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2025-11-26T15:56:12Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/5eb4d0203aa7005d62b72a28499ee98f9723550a/Various/Possessed.jsfx</source>
       </version>
     </reapack>
     <reapack name="PrimalOvertones.jsfx" type="effect" desc="Primal Overtones Waveshaper (chmaha)">
