@@ -1,0 +1,63 @@
+Version: 1.0
+desc:SineGlow Saturation (chmaha)
+author: chmaha
+about:
+  Uses DSP from airwindows "PurestSaturation" by Chris Johnson
+  https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/PurestSaturation (MIT License)
+  JSFX version released under GPLv3 license
+
+slider1:0.1<0,1,0.01>Input
+slider2:1<0,1,0.01>Output
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+
+@slider
+
+A = slider1;
+B = slider2;
+
+@block
+
+inputGain = A*10.0;
+outputGain = B;
+
+@sample
+inputSampleL = spl0;
+inputSampleR = spl1;
+
+(inputGain != 1.0) ? (
+  inputSampleL *= inputGain;
+  inputSampleR *= inputGain;
+);    
+
+inputSampleL = min(max(inputSampleL,-2.032610446872596),2.032610446872596);
+X = inputSampleL * inputSampleL;
+temp = inputSampleL * X;
+inputSampleL -= (temp*0.125); temp *= X;
+inputSampleL += (temp*0.0078125); temp *= X;
+inputSampleL -= (temp*0.000244140625); temp *= X;
+inputSampleL += (temp*0.000003814697265625); temp *= X;
+inputSampleL -= (temp*0.0000000298023223876953125); temp *= X;
+
+inputSampleR = min(max(inputSampleR,-2.032610446872596),2.032610446872596);
+X = inputSampleR * inputSampleR;
+temp = inputSampleR * X;
+inputSampleR -= (temp*0.125); temp *= X;
+inputSampleR += (temp*0.0078125); temp *= X;
+inputSampleR -= (temp*0.000244140625); temp *= X;
+inputSampleR += (temp*0.000003814697265625); temp *= X;
+inputSampleR -= (temp*0.0000000298023223876953125); temp *= X;
+
+(outputGain < 1.0) ? (
+  inputSampleL *= outputGain;
+  inputSampleR *= outputGain;
+);
+
+spl0 = inputSampleL;
+spl1 = inputSampleR;
+
