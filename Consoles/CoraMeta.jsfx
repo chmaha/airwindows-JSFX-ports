@@ -1,0 +1,11 @@
+@description Cora Analog Circuitry (chmaha)
+@author chmaha
+@version 1.3
+@changelog
+  Remove UINT32_MAX references
+@metapackage
+@provides
+  Cora.jsfx
+@about
+  This jsfx analog circuitry emulation uses DSP from airwindows Interstage.
+  Also included is the Cora project template with plugins already in place (requires ELSA and RCGain to be installed)
