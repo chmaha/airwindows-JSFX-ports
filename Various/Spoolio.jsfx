@@ -1,4 +1,4 @@
-Version: 1.0
+Version: 1.1
 desc: Spoolio Tape Compression (chmaha)
 author: chmaha
 about:
@@ -117,7 +117,7 @@ avgSlewR = 1.0-(1.0-avgSlewR*1.0-avgSlewR);
 inputSampleR = (inputSampleR*(1.0-avgSlewR)) + (darkSampleR*avgSlewR);
 lastDarkR = darkSampleR;
 
-inputSampleL = max(min(inputSampleL*inputGain,2.305929007734908),-2.305929007734908);
+inputSampleL = max(min(inputSampleL,2.305929007734908),-2.305929007734908);
 addtwo = inputSampleL * inputSampleL;
 empower = inputSampleL * addtwo;
 inputSampleL -= (empower / 6.0);
@@ -130,7 +130,7 @@ inputSampleL += (empower / 224985.6);
 empower *= addtwo;
 inputSampleL -= (empower / 9979200.0);
 
-inputSampleR = max(min(inputSampleR*inputGain,2.305929007734908),-2.305929007734908);
+inputSampleR = max(min(inputSampleR,2.305929007734908),-2.305929007734908);
 addtwo = inputSampleR * inputSampleR;
 empower = inputSampleR * addtwo;
 inputSampleR -= (empower / 6.0);
