@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="763dd48cfa693073d3b8bc658137819a0cff865b">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="10339815095e8ccee1e63625d0b4f05e36e61d3e">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1663,6 +1663,20 @@
       </version>
       <version name="1.3" author="chmaha" time="2023-04-14T12:05:59Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/0a01e9723d498308910ba0723037f7e705f78c67/Various/Solar_Wind.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="Spoolio.jsfx" type="effect" desc="Spoolio Tape Compression (chmaha)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Uses DSP from airwindows "TapeHack2" by Chris Johnson https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/TapeHack2 (MIT License) JSFX version released under GPLv3 license\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="chmaha" time="2026-01-24T20:06:47Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/10339815095e8ccee1e63625d0b4f05e36e61d3e/Various/Spoolio.jsfx</source>
       </version>
     </reapack>
     <reapack name="Squishmallow.jsfx" type="effect" desc="Squishmallow Compressor (chmaha)">
