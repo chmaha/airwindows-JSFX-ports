@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="chmaha airwindows JSFX Ports" commit="10339815095e8ccee1e63625d0b4f05e36e61d3e">
+<index version="1" name="chmaha airwindows JSFX Ports" commit="e7ce4db85ff233b54e4849a0011e88b36eecea3c">
   <category name="Consoles">
     <reapack name="Analog-a-licious.jsfx" type="effect" desc="Analog-a-licious Console Colors (chmaha)">
       <metadata>
@@ -1677,6 +1677,9 @@
       </metadata>
       <version name="1.0" author="chmaha" time="2026-01-24T20:06:47Z">
         <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/10339815095e8ccee1e63625d0b4f05e36e61d3e/Various/Spoolio.jsfx</source>
+      </version>
+      <version name="1.1" author="chmaha" time="2026-01-24T20:24:03Z">
+        <source>https://github.com/chmaha/airwindows-JSFX-ports/raw/e7ce4db85ff233b54e4849a0011e88b36eecea3c/Various/Spoolio.jsfx</source>
       </version>
     </reapack>
     <reapack name="Squishmallow.jsfx" type="effect" desc="Squishmallow Compressor (chmaha)">
