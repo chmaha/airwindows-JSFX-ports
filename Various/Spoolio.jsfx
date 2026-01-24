@@ -1,0 +1,194 @@
+Version: 1.0
+desc: Spoolio Tape Compression (chmaha)
+author: chmaha
+about:
+  Uses DSP from airwindows "TapeHack2" by Chris Johnson
+  https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/TapeHack2 (MIT License)
+  JSFX version released under GPLv3 license
+
+slider1:0.1<0,1,0.01>Input
+slider2:1<0,1,0.01>Output
+slider3:1<0,1,0.01>Dry/Wet
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+
+freemem = 0;
+avg32L = freemem; freemem += 33;
+avg32R = freemem; freemem += 33;
+avg16L = freemem; freemem += 17;
+avg16R = freemem; freemem += 17;
+avg8L = freemem; freemem += 9;
+avg8R = freemem; freemem += 9;
+avg4L = freemem; freemem += 5;
+avg4R = freemem; freemem += 5;
+avg2L = freemem; freemem += 3;
+avg2R = freemem; freemem += 3;
+post32L = freemem; freemem += 33;
+post32R = freemem; freemem += 33;
+post16L = freemem; freemem += 17;
+post16R = freemem; freemem += 17;
+post8L = freemem; freemem += 9;
+post8R = freemem; freemem += 9;
+post4L = freemem; freemem += 5;
+post4R = freemem; freemem += 5;
+post2L = freemem; freemem += 3;
+post2R = freemem; freemem += 3;
+
+@slider
+
+A = slider1;
+B = slider2;
+C = slider3;
+
+@block
+
+overallscale = 1.0;
+overallscale /= 44100.0;
+overallscale *= srate;
+spacing = floor(overallscale*2.0);
+(spacing < 2) ? spacing = 2; (spacing > 32) ? spacing = 32;
+
+inputGain = A*10.0;
+outputGain = B*0.9239;
+wet = C;
+
+@sample
+inputSampleL = spl0;
+inputSampleR = spl1;
+
+drySampleL = inputSampleL;
+drySampleR = inputSampleR;
+
+inputSampleL *= inputGain;
+inputSampleR *= inputGain;
+darkSampleL = inputSampleL;
+darkSampleR = inputSampleR;
+
+(avgPos > 31) ? avgPos = 0;
+
+(spacing > 31) ? (
+    avg32L[avgPos] = darkSampleL; avg32R[avgPos] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 32) (darkSampleL += avg32L[x]; darkSampleR += avg32R[x]; x += 1;);
+    darkSampleL /= 32.0; darkSampleR /= 32.0;
+);
+
+(spacing > 15) ? (
+    avg16L[avgPos%16] = darkSampleL; avg16R[avgPos%16] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 16) (darkSampleL += avg16L[x]; darkSampleR += avg16R[x]; x += 1;);
+    darkSampleL /= 16.0; darkSampleR /= 16.0;
+);
+
+(spacing > 7) ? (
+    avg8L[avgPos%8] = darkSampleL; avg8R[avgPos%8] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 8) (darkSampleL += avg8L[x]; darkSampleR += avg8R[x]; x += 1;);
+    darkSampleL /= 8.0; darkSampleR /= 8.0;
+);
+
+(spacing > 3) ? (
+    avg4L[avgPos%4] = darkSampleL; avg4R[avgPos%4] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 4) (darkSampleL += avg4L[x]; darkSampleR += avg4R[x]; x += 1;);
+    darkSampleL /= 4.0; darkSampleR /= 4.0;
+);
+
+(spacing > 1) ? (
+    avg2L[avgPos%2] = darkSampleL; avg2R[avgPos%2] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 2) (darkSampleL += avg2L[x]; darkSampleR += avg2R[x]; x += 1;);
+    darkSampleL /= 2.0; darkSampleR /= 2.0;
+);
+
+// only update avgPos after the post-distortion filter stage
+avgSlewL = min(abs(lastDarkL-inputSampleL)*0.12*overallscale,1.0);
+avgSlewL = 1.0-(1.0-avgSlewL*1.0-avgSlewL);
+inputSampleL = (inputSampleL*(1.0-avgSlewL)) + (darkSampleL*avgSlewL);
+lastDarkL = darkSampleL;
+
+avgSlewR = min(abs(lastDarkR-inputSampleR)*0.12*overallscale,1.0);
+avgSlewR = 1.0-(1.0-avgSlewR*1.0-avgSlewR);
+inputSampleR = (inputSampleR*(1.0-avgSlewR)) + (darkSampleR*avgSlewR);
+lastDarkR = darkSampleR;
+
+inputSampleL = max(min(inputSampleL*inputGain,2.305929007734908),-2.305929007734908);
+addtwo = inputSampleL * inputSampleL;
+empower = inputSampleL * addtwo;
+inputSampleL -= (empower / 6.0);
+empower *= addtwo;
+inputSampleL += (empower / 69.0);
+empower *= addtwo;
+inputSampleL -= (empower / 2530.08);
+empower *= addtwo;
+inputSampleL += (empower / 224985.6);
+empower *= addtwo;
+inputSampleL -= (empower / 9979200.0);
+
+inputSampleR = max(min(inputSampleR*inputGain,2.305929007734908),-2.305929007734908);
+addtwo = inputSampleR * inputSampleR;
+empower = inputSampleR * addtwo;
+inputSampleR -= (empower / 6.0);
+empower *= addtwo;
+inputSampleR += (empower / 69.0);
+empower *= addtwo;
+inputSampleR -= (empower / 2530.08);
+empower *= addtwo;
+inputSampleR += (empower / 224985.6);
+empower *= addtwo;
+inputSampleR -= (empower / 9979200.0);
+
+darkSampleL = inputSampleL;
+darkSampleR = inputSampleR;
+(avgPos > 31) ? avgPos = 0;
+
+(spacing > 31) ? (
+    post32L[avgPos] = darkSampleL; post32R[avgPos] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 32) (darkSampleL += post32L[x]; darkSampleR += post32R[x]; x += 1;);
+    darkSampleL /= 32.0; darkSampleR /= 32.0;
+);
+
+(spacing > 15) ? (
+    post16L[avgPos%16] = darkSampleL; post16R[avgPos%16] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 16) (darkSampleL += post16L[x]; darkSampleR += post16R[x]; x += 1;);
+    darkSampleL /= 16.0; darkSampleR /= 16.0;
+);
+
+(spacing > 7) ? (
+    post8L[avgPos%8] = darkSampleL; post8R[avgPos%8] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 8) (darkSampleL += post8L[x]; darkSampleR += post8R[x]; x += 1;);
+    darkSampleL /= 8.0; darkSampleR /= 8.0;
+);
+
+(spacing > 3) ? (
+    post4L[avgPos%4] = darkSampleL; post4R[avgPos%4] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 4) (darkSampleL += post4L[x]; darkSampleR += post4R[x]; x += 1;);
+    darkSampleL /= 4.0; darkSampleR /= 4.0;
+);
+
+(spacing > 1) ? (
+    post2L[avgPos%2] = darkSampleL; post2R[avgPos%2] = darkSampleR;
+    darkSampleL = 0.0; darkSampleR = 0.0;
+    x = 0; while (x < 2) (darkSampleL += post2L[x]; darkSampleR += post2R[x]; x += 1;);
+    darkSampleL /= 2.0; darkSampleR /= 2.0;
+);
+
+avgPos += 1;
+
+inputSampleL = (inputSampleL*(1.0-avgSlewL)) + (darkSampleL*avgSlewL);
+inputSampleR = (inputSampleR*(1.0-avgSlewR)) + (darkSampleR*avgSlewR);
+
+inputSampleL = (inputSampleL * outputGain * wet) + (drySampleL * (1.0-wet));
+inputSampleR = (inputSampleR * outputGain * wet) + (drySampleR * (1.0-wet));
+
+spl0 = inputSampleL;
+spl1 = inputSampleR;
