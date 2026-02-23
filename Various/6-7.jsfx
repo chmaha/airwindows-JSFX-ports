@@ -1,0 +1,388 @@
+Version: 1.0
+desc: 6-7 EQ (chmaha)
+author: chmaha
+about:
+  Uses DSP from airwindows "FatEQ" by Chris Johnson
+  https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/FatEQ (MIT License)
+  JSFX version released under GPLv3 license
+
+slider1:0.5<0,1,0.01>High
+slider2:0.5<0,1,0.01>High Mid
+slider3:0.5<0,1,0.01>Low Mid
+slider4:0.5<0,1,0.01>Bass
+slider5:1.0<0,1,0.01>Out
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+
+prevSampL1 = 0;
+prevSlewL1 = 1;
+prevSampR1 = 2;
+prevSlewR1 = 3;
+prevSampL2 = 4;
+prevSlewL2 = 5;
+prevSampR2 = 6;
+prevSlewR2 = 7;
+prevSampL3 = 8;
+prevSlewL3 = 9;
+prevSampR3 = 10;
+prevSlewR3 = 11;
+prevSampL4 = 12;
+prevSlewL4 = 13;
+prevSampR4 = 14;
+prevSlewR4 = 15;
+prevSampL5 = 16;
+prevSlewL5 = 17;
+prevSampR5 = 18;
+prevSlewR5 = 19;
+prevSampL6 = 20;
+prevSlewL6 = 21;
+prevSampR6 = 22;
+prevSlewR6 = 23;
+pear_max = 24;
+figL = 24;
+figR = 25;
+gndL = 26;
+gndR = 27;
+slew = 28;
+freq = 29;
+levl = 30;
+pear_total = 31;
+
+freemem = 0;
+pearA = freemem; freemem += pear_total;
+pearB = freemem; freemem += pear_total;
+pearC = freemem; freemem += pear_total;
+intermediateL = freemem; freemem += 16;
+intermediateR = freemem; freemem += 16;
+
+
+@slider
+
+A = slider1;
+B = slider2;
+C = slider3;
+D = slider4;
+E = slider5;
+
+@block
+
+overallscale = 1.0;
+overallscale /= 44100.0;
+overallscale *= srate;
+spacing = floor(overallscale);
+(spacing < 1) ? spacing = 1;
+(spacing > 16) ? spacing = 16;
+
+topLevl = A * 2.0;
+(topLevl < 1.0) ? topLevl = sqrt(topLevl);
+
+pearA[levl] = B * 2.0;
+(pearA[levl] < 1.0) ? pearA[levl] = sqrt(pearA[levl]);
+
+pearB[levl] = C * 2.0;
+(pearB[levl] < 1.0) ? pearB[levl] = sqrt(pearB[levl]);
+
+pearC[levl] = D * 2.0;
+(pearC[levl] < 1.0) ? pearC[levl] = sqrt(pearC[levl]);
+
+out = E;
+
+freqFactor = sqrt(overallscale) + (overallscale * 0.5);
+pearA[freq] = pow(0.564, freqFactor + 0.85);
+pearB[freq] = pow(0.564, freqFactor + 4.1);
+pearC[freq] = pow(0.564, freqFactor + 7.1);
+
+@sample
+
+inputSampleL = spl0;
+inputSampleR = spl1;
+
+x = 0;
+while (x < pear_max) (
+
+  // --- pearA stage ---
+  pearA[figL] = inputSampleL;
+  pearA[figR] = inputSampleR;
+
+  pearA[slew] = ((pearA[figL] - pearA[x]) + pearA[x + 1]) * pearA[freq] * 0.5;
+  pearA[x] = (pearA[freq] * pearA[figL]) + ((1.0 - pearA[freq]) * (pearA[x] + pearA[x + 1]));
+  pearA[figL] = pearA[x];
+  pearA[x + 1] = pearA[slew];
+
+  pearA[slew] = ((pearA[figR] - pearA[x + 2]) + pearA[x + 3]) * pearA[freq] * 0.5;
+  pearA[x + 2] = (pearA[freq] * pearA[figR]) + ((1.0 - pearA[freq]) * (pearA[x + 2] + pearA[x + 3]));
+  pearA[figR] = pearA[x + 2];
+  pearA[x + 3] = pearA[slew];
+
+  inputSampleL -= pearA[figL];
+  inputSampleR -= pearA[figR];
+
+  // --- pearB stage ---
+  pearB[figL] = pearA[figL];
+  pearB[figR] = pearA[figR];
+
+  pearB[slew] = ((pearB[figL] - pearB[x]) + pearB[x + 1]) * pearB[freq] * 0.5;
+  pearB[x] = (pearB[freq] * pearA[figL]) + ((1.0 - pearB[freq]) * (pearB[x] + pearB[x + 1]));
+  pearB[figL] = pearB[x];
+  pearB[x + 1] = pearB[slew];
+
+  pearB[slew] = ((pearB[figR] - pearB[x + 2]) + pearB[x + 3]) * pearB[freq] * 0.5;
+  pearB[x + 2] = (pearB[freq] * pearA[figR]) + ((1.0 - pearB[freq]) * (pearB[x + 2] + pearB[x + 3]));
+  pearB[figR] = pearB[x + 2];
+  pearB[x + 3] = pearB[slew];
+
+  pearA[figL] -= pearB[figL];
+  pearA[figR] -= pearB[figR];
+
+  // --- pearC stage ---
+  pearC[figL] = pearB[figL];
+  pearC[figR] = pearB[figR];
+
+  pearC[slew] = ((pearC[figL] - pearC[x]) + pearC[x + 1]) * pearC[freq] * 0.5;
+  pearC[x] = (pearC[freq] * pearB[figL]) + ((1.0 - pearC[freq]) * (pearC[x] + pearC[x + 1]));
+  pearC[figL] = pearC[x];
+  pearC[x + 1] = pearC[slew];
+
+  pearC[slew] = ((pearC[figR] - pearC[x + 2]) + pearC[x + 3]) * pearC[freq] * 0.5;
+  pearC[x + 2] = (pearC[freq] * pearB[figR]) + ((1.0 - pearC[freq]) * (pearC[x + 2] + pearC[x + 3]));
+  pearC[figR] = pearC[x + 2];
+  pearC[x + 3] = pearC[slew];
+
+  pearB[figL] -= pearC[figL];
+  pearB[figR] -= pearC[figR];
+
+  // ===== FatEQ L =====
+
+  // Top band (High) - L
+  altered = inputSampleL;
+  (topLevl > 1.0) ? (
+    altered = max(min(inputSampleL * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (topLevl < 1.0) ? (
+    altered = max(min(inputSampleL, 1.0), -1.0);
+    polarity = altered;
+    bigX = inputSampleL * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleL = (inputSampleL * (1.0 - abs(topLevl - 1.0))) + (altered * abs(topLevl - 1.0));
+
+  // pearA band (HMid) - L
+  altered = pearA[figL];
+  (pearA[levl] > 1.0) ? (
+    altered = max(min(pearA[figL] * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (pearA[levl] < 1.0) ? (
+    altered = max(min(pearA[figL], 1.0), -1.0);
+    polarity = altered;
+    bigX = pearA[figL] * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleL += (pearA[figL] * (1.0 - abs(pearA[levl] - 1.0))) + (altered * abs(pearA[levl] - 1.0));
+
+  // pearB band (LMid) - L
+  altered = pearB[figL];
+  (pearB[levl] > 1.0) ? (
+    altered = max(min(pearB[figL] * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (pearB[levl] < 1.0) ? (
+    altered = max(min(pearB[figL], 1.0), -1.0);
+    polarity = altered;
+    bigX = pearB[figL] * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleL += (pearB[figL] * (1.0 - abs(pearB[levl] - 1.0))) + (altered * abs(pearB[levl] - 1.0));
+
+  // pearC band (Bass) - L
+  altered = pearC[figL];
+  (pearC[levl] > 1.0) ? (
+    altered = max(min(pearC[figL] * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (pearC[levl] < 1.0) ? (
+    altered = max(min(pearC[figL], 1.0), -1.0);
+    polarity = altered;
+    bigX = pearC[figL] * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleL += (pearC[figL] * (1.0 - abs(pearC[levl] - 1.0))) + (altered * abs(pearC[levl] - 1.0));
+
+  // ===== FatEQ R =====
+
+  // Top band (High) - R
+  altered = inputSampleR;
+  (topLevl > 1.0) ? (
+    altered = max(min(inputSampleR * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (topLevl < 1.0) ? (
+    altered = max(min(inputSampleR, 1.0), -1.0);
+    polarity = altered;
+    bigX = inputSampleR * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleR = (inputSampleR * (1.0 - abs(topLevl - 1.0))) + (altered * abs(topLevl - 1.0));
+
+  // pearA band (HMid) - R
+  altered = pearA[figR];
+  (pearA[levl] > 1.0) ? (
+    altered = max(min(pearA[figR] * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (pearA[levl] < 1.0) ? (
+    altered = max(min(pearA[figR], 1.0), -1.0);
+    polarity = altered;
+    bigX = pearA[figR] * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleR += (pearA[figR] * (1.0 - abs(pearA[levl] - 1.0))) + (altered * abs(pearA[levl] - 1.0));
+
+  // pearB band (LMid) - R
+  altered = pearB[figR];
+  (pearB[levl] > 1.0) ? (
+    altered = max(min(pearB[figR] * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (pearB[levl] < 1.0) ? (
+    altered = max(min(pearB[figR], 1.0), -1.0);
+    polarity = altered;
+    bigX = pearB[figR] * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleR += (pearB[figR] * (1.0 - abs(pearB[levl] - 1.0))) + (altered * abs(pearB[levl] - 1.0));
+
+  // pearC band (Bass) - R
+  altered = pearC[figR];
+  (pearC[levl] > 1.0) ? (
+    altered = max(min(pearC[figR] * ($pi / 2), $pi / 2), -($pi / 2));
+    bigX = altered * altered;
+    temp = altered * bigX; altered -= (temp / 6.0); temp *= bigX;
+    altered += (temp / 120.0); temp *= bigX; altered -= (temp / 5040.0); temp *= bigX;
+    altered += (temp / 362880.0); temp *= bigX; altered -= (temp / 39916800.0);
+  );
+  (pearC[levl] < 1.0) ? (
+    altered = max(min(pearC[figR], 1.0), -1.0);
+    polarity = altered;
+    bigX = pearC[figR] * altered;
+    temp = bigX; altered = (temp / 2.0); temp *= bigX;
+    altered -= (temp / 24.0); temp *= bigX; altered += (temp / 720.0); temp *= bigX;
+    altered -= (temp / 40320.0); temp *= bigX; altered += (temp / 3628800.0);
+    altered *= ((polarity < 0.0) ? -1.0 : 1.0);
+  );
+  inputSampleR += (pearC[figR] * (1.0 - abs(pearC[levl] - 1.0))) + (altered * abs(pearC[levl] - 1.0));
+
+  x += 4;
+);
+
+inputSampleL *= out;
+inputSampleR *= out;
+
+(inputSampleL > 4.0) ? inputSampleL = 4.0;
+(inputSampleL < -4.0) ? inputSampleL = -4.0;
+(wasPosClipL == 1) ? (
+  (inputSampleL < lastSampleL) ? lastSampleL = 0.7058208 + (inputSampleL * 0.2609148)
+  : lastSampleL = 0.2491717 + (lastSampleL * 0.7390851);
+);
+wasPosClipL = 0;
+(inputSampleL > 0.9549925859) ? (
+  wasPosClipL = 1;
+  inputSampleL = 0.7058208 + (lastSampleL * 0.2609148);
+);
+(wasNegClipL == 1) ? (
+  (inputSampleL > lastSampleL) ? lastSampleL = -0.7058208 + (inputSampleL * 0.2609148)
+  : lastSampleL = -0.2491717 + (lastSampleL * 0.7390851);
+);
+wasNegClipL = 0;
+(inputSampleL < -0.9549925859) ? (
+  wasNegClipL = 1;
+  inputSampleL = -0.7058208 + (lastSampleL * 0.2609148);
+);
+intermediateL[spacing] = inputSampleL;
+inputSampleL = lastSampleL;
+ix = spacing;
+while (ix > 0) (
+  intermediateL[ix - 1] = intermediateL[ix];
+  ix -= 1;
+);
+lastSampleL = intermediateL[0];
+
+(inputSampleR > 4.0) ? inputSampleR = 4.0;
+(inputSampleR < -4.0) ? inputSampleR = -4.0;
+(wasPosClipR == 1) ? (
+  (inputSampleR < lastSampleR) ? lastSampleR = 0.7058208 + (inputSampleR * 0.2609148)
+  : lastSampleR = 0.2491717 + (lastSampleR * 0.7390851);
+);
+wasPosClipR = 0;
+(inputSampleR > 0.9549925859) ? (
+  wasPosClipR = 1;
+  inputSampleR = 0.7058208 + (lastSampleR * 0.2609148);
+);
+(wasNegClipR == 1) ? (
+  (inputSampleR > lastSampleR) ? lastSampleR = -0.7058208 + (inputSampleR * 0.2609148)
+  : lastSampleR = -0.2491717 + (lastSampleR * 0.7390851);
+);
+wasNegClipR = 0;
+(inputSampleR < -0.9549925859) ? (
+  wasNegClipR = 1;
+  inputSampleR = -0.7058208 + (lastSampleR * 0.2609148);
+);
+intermediateR[spacing] = inputSampleR;
+inputSampleR = lastSampleR;
+ix = spacing;
+while (ix > 0) (
+  intermediateR[ix - 1] = intermediateR[ix];
+  ix -= 1;
+);
+lastSampleR = intermediateR[0];
+
+spl0 = inputSampleL;
+spl1 = inputSampleR;
