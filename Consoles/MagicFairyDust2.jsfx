@@ -1,0 +1,271 @@
+Version: 1.0
+desc:MagicFairyDust2 Console Saturation (chmaha)
+author: chmaha
+about:
+  Uses DSP from airwindows "ChannelX" by Chris Johnson
+  https://github.com/airwindows/airwindows/tree/master/plugins/LinuxVST/src/ChannelX (MIT License)
+  JSFX version released under GPLv3 license
+
+slider1:0<0,4,1{Neve,API,SSL,Teac,Mackie}>Console Type
+slider2:0<0,200,1>Drive %
+slider3:1<0,1,0.01>Output
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+freemem = 0;
+bip = freemem; freemem += 40;
+
+//bip array indices (matching C++ enum from ChannelX.h)
+bip_dvLA = 0; bip_dvLB = 1; bip_dvLC = 2; bip_dvLD = 3;
+bip_pvLA = 4; bip_pvLB = 5; bip_pvLC = 6; bip_pvLD = 7;
+bip_dvRA = 8; bip_dvRB = 9; bip_dvRC = 10; bip_dvRD = 11;
+bip_pvRA = 12; bip_pvRB = 13; bip_pvRC = 14; bip_pvRD = 15;
+bip_drbLA = 16; bip_drbLB = 17; bip_drbLC = 18; bip_drbLD = 19;
+bip_praLA = 20; bip_praLB = 21; bip_praLC = 22; bip_praLD = 23;
+bip_prbLA = 24; bip_prbLB = 25; bip_prbLC = 26; bip_prbLD = 27;
+bip_drbRA = 28; bip_drbRB = 29; bip_drbRC = 30; bip_drbRD = 31;
+bip_praRA = 32; bip_praRB = 33; bip_praRC = 34; bip_praRD = 35;
+bip_prbRA = 36; bip_prbRB = 37; bip_prbRC = 38; bip_prbRD = 39;
+
+A = 0.0;
+B = 0.0;
+C = 1.0;
+x = 0; loop(40, bip[x] = 0.0; x += 1;);
+
+rbSampleLA = 0.0;
+rbSampleRA = 0.0;
+rbSampleLB = 0.0;
+rbSampleRB = 0.0;
+lastSampleLA = 0.0; lastSampleLB = 0.0; lastSampleLC = 0.0;
+lastSampleRA = 0.0; lastSampleRB = 0.0; lastSampleRC = 0.0;
+flip = 0;
+rbAmount = 0.005832;
+threshold = 0.33362176; //instantiating with Neve values
+
+@slider
+A = slider1;
+B = slider2/200;
+C = slider3;
+
+(A == 0) ? (rbAmount = 0.005832; threshold = 0.33362176;); //Neve
+(A == 1) ? (rbAmount = 0.004096; threshold = 0.59969536;); //API
+(A == 2) ? (rbAmount = 0.004913; threshold = 0.84934656;); //SSL
+(A == 3) ? (rbAmount = 0.009216; threshold = 0.149;); //Teac
+(A == 4) ? (rbAmount = 0.011449; threshold = 0.092;); //Mackie
+
+@block
+overallscale = 1.0;
+overallscale /= 44100.0;
+overallscale *= srate;
+density = B*2.0; //0-2
+phattity = density - 1.0;
+(density > 1.0) ? density = 1.0; //max out at full wet for Spiral aspect
+(phattity < 0.0) ? phattity = 0.0; //
+nonLin = 5.0-density; //number is smaller for more intense, larger for more subtle
+output = C;
+localRbAmount = rbAmount/overallscale; //we've learned not to try and adjust threshold for sample rate
+
+@sample
+
+inputSampleL = spl0;
+inputSampleR = spl1;
+
+//highpass section L including capacitor modeling nonlinearity
+dielectricScale = abs(2.0-((inputSampleL+nonLin)/nonLin));
+(flip) ?
+(
+  rbSampleLA = (rbSampleLA * (1.0-(localRbAmount*dielectricScale)))+(inputSampleL*localRbAmount*dielectricScale);
+  (abs(rbSampleLA)>1.18*10^-37) ? (
+    bip_delta = inputSampleL;
+    inputSampleL *= rbSampleLA*0.96;
+    inputSampleL = ((inputSampleL*inputSampleL)*-0.166666666666666)*(inputSampleL*inputSampleL)+inputSampleL;
+    inputSampleL /= rbSampleLA*0.96;
+    bip[bip_drbLA] = bip_delta - inputSampleL;
+    bip[bip_drbLB] = bip[bip_praLA]-bip[bip_drbLA]; bip[bip_praLA] = bip[bip_drbLA]; //velocity
+    bip[bip_drbLC] = bip[bip_praLB]-bip[bip_drbLB]; bip[bip_praLB] = bip[bip_drbLB]; //acceleration
+    bip[bip_drbLD] = bip[bip_praLC]-bip[bip_drbLC]; bip[bip_praLC] = bip[bip_drbLC]; //jerk
+    bip_drbE = bip[bip_praLD]-bip[bip_drbLD]; bip[bip_praLD] = bip[bip_drbLD]; //snap
+    inputSampleL *= (1.0+(abs(bip[bip_drbLC])*0.0618)+(abs(bip[bip_drbLD])*-0.05982)+(abs(bip_drbE)*0.0206));
+  );
+  inputSampleL -= rbSampleLA*0.92;
+) :
+(
+  rbSampleLB = (rbSampleLB * (1.0-(localRbAmount*dielectricScale)))+(inputSampleL*localRbAmount*dielectricScale);
+  (abs(rbSampleLB)>1.18*10^-37) ? (
+    bip_delta = inputSampleL;
+    inputSampleL *= rbSampleLB*0.96;
+    inputSampleL = ((inputSampleL*inputSampleL)*-0.166666666666666)*(inputSampleL*inputSampleL)+inputSampleL;
+    inputSampleL /= rbSampleLB*0.96;
+    bip[bip_drbLA] = bip_delta - inputSampleL;
+    bip[bip_drbLB] = bip[bip_prbLA]-bip[bip_drbLA]; bip[bip_prbLA] = bip[bip_drbLA];
+    bip[bip_drbLC] = bip[bip_prbLB]-bip[bip_drbLB]; bip[bip_prbLB] = bip[bip_drbLB];
+    bip[bip_drbLD] = bip[bip_prbLC]-bip[bip_drbLC]; bip[bip_prbLC] = bip[bip_drbLC];
+    bip_drbE = bip[bip_prbLD]-bip[bip_drbLD]; bip[bip_prbLD] = bip[bip_drbLD];
+    inputSampleL *= (1.0+(abs(bip[bip_drbLC])*0.0618)+(abs(bip[bip_drbLD])*-0.05982)+(abs(bip_drbE)*0.0206));
+  );
+  inputSampleL -= rbSampleLB*0.92;
+);
+//highpass section L including capacitor modeling nonlinearity
+
+//highpass section R including capacitor modeling nonlinearity
+dielectricScale = abs(2.0-((inputSampleR+nonLin)/nonLin));
+(flip) ?
+(
+  rbSampleRA = (rbSampleRA * (1.0-(localRbAmount*dielectricScale)))+(inputSampleR*localRbAmount*dielectricScale);
+  (abs(rbSampleRA)>1.18*10^-37) ? (
+    bip_delta = inputSampleR;
+    inputSampleR *= rbSampleRA*0.96;
+    inputSampleR = ((inputSampleR*inputSampleR)*-0.166666666666666)*(inputSampleR*inputSampleR)+inputSampleR;
+    inputSampleR /= rbSampleRA*0.96;
+    bip[bip_drbRA] = bip_delta - inputSampleR;
+    bip[bip_drbRB] = bip[bip_praRA]-bip[bip_drbRA]; bip[bip_praRA] = bip[bip_drbRA];
+    bip[bip_drbRC] = bip[bip_praRB]-bip[bip_drbRB]; bip[bip_praRB] = bip[bip_drbRB];
+    bip[bip_drbRD] = bip[bip_praRC]-bip[bip_drbRC]; bip[bip_praRC] = bip[bip_drbRC];
+    bip_drbE = bip[bip_praRD]-bip[bip_drbRD]; bip[bip_praRD] = bip[bip_drbRD];
+    inputSampleR *= (1.0+(abs(bip[bip_drbRC])*0.0618)+(abs(bip[bip_drbRD])*-0.05982)+(abs(bip_drbE)*0.0206));
+  );
+  inputSampleR -= rbSampleRA*0.92;
+) :
+(
+  rbSampleRB = (rbSampleRB * (1.0-(localRbAmount*dielectricScale)))+(inputSampleR*localRbAmount*dielectricScale);
+  (abs(rbSampleRB)>1.18*10^-37) ? (
+    bip_delta = inputSampleR;
+    inputSampleR *= rbSampleRB*0.96;
+    inputSampleR = ((inputSampleR*inputSampleR)*-0.166666666666666)*(inputSampleR*inputSampleR)+inputSampleR;
+    inputSampleR /= rbSampleRB*0.96;
+    bip[bip_drbRA] = bip_delta - inputSampleR;
+    bip[bip_drbRB] = bip[bip_prbRA]-bip[bip_drbRA]; bip[bip_prbRA] = bip[bip_drbRA];
+    bip[bip_drbRC] = bip[bip_prbRB]-bip[bip_drbRB]; bip[bip_prbRB] = bip[bip_drbRB];
+    bip[bip_drbRD] = bip[bip_prbRC]-bip[bip_drbRC]; bip[bip_prbRC] = bip[bip_drbRC];
+    bip_drbE = bip[bip_prbRD]-bip[bip_drbRD]; bip[bip_prbRD] = bip[bip_drbRD];
+    inputSampleR *= (1.0+(abs(bip[bip_drbRC])*0.0618)+(abs(bip[bip_drbRD])*-0.05982)+(abs(bip_drbE)*0.0206));
+  );
+  inputSampleR -= rbSampleRB*0.92;
+);
+//highpass section R including capacitor modeling nonlinearity
+
+//Spiral saturation section L
+bip_delta = inputSampleL;
+drySample = inputSampleL;
+inputSampleL = max(min(inputSampleL,1.0),-1.0);
+phatSample = inputSampleL * 1.57079633;
+X = phatSample; X *= X;
+temp = phatSample * X;
+phatSample -= temp*0.16666666666666666666666666666666666; temp *= X;
+phatSample += temp*0.00833333333333333333333333333333333; temp *= X;
+phatSample -= temp*0.00019841269841269841269841269841269; temp *= X;
+phatSample += temp*0.00000275573192239858906525573192239; temp *= X;
+phatSample -= temp*0.00000002505210838544171877521083854; temp *= X;
+phatSample += temp*0.00000000016059043836821614599392377; temp *= X;
+phatSample -= temp*0.00000000000076471637318198164759011; temp *= X;
+phatSample += temp*0.00000000000000281145725434552076319; temp *= X;
+phatSample -= temp*0.00000000000000000822063524662432971; temp *= X;
+phatSample += temp*0.00000000000000000001957294106339126;
+inputSampleL *= 1.2533141373155;
+//clip to 1.2533141373155 to reach maximum output, or 1.57079633 for pure sine 'phat' version
+distSample = inputSampleL * abs(inputSampleL); //distSample is Spiral
+X = distSample; X *= X;
+temp = distSample * X;
+distSample -= temp*0.16666666666666666666666666666666666; temp *= X;
+distSample += temp*0.00833333333333333333333333333333333; temp *= X;
+distSample -= temp*0.00019841269841269841269841269841269; temp *= X;
+distSample += temp*0.00000275573192239858906525573192239; temp *= X;
+distSample -= temp*0.00000002505210838544171877521083854; temp *= X;
+distSample += temp*0.00000000016059043836821614599392377; temp *= X;
+distSample -= temp*0.00000000000076471637318198164759011; temp *= X;
+distSample += temp*0.00000000000000281145725434552076319; temp *= X;
+distSample -= temp*0.00000000000000000822063524662432971; temp *= X;
+distSample += temp*0.00000000000000000001957294106339126;
+distSample /= ((abs(inputSampleL) == 0.0) ?1.0:abs(inputSampleL));
+inputSampleL = distSample; //purest form is full Spiral
+(density < 1.0) ? inputSampleL = (drySample*(1-density))+(distSample*density); //fade Spiral aspect
+(phattity > 0.0) ? inputSampleL = (inputSampleL*(1-phattity))+(phatSample*phattity); //apply original Density on top
+//RetroBass derivative modulation after saturation L
+bip[bip_dvLA] = bip_delta - inputSampleL;
+bip[bip_dvLB] = bip[bip_pvLA]-bip[bip_dvLA]; bip[bip_pvLA] = bip[bip_dvLA]; //velocity
+bip[bip_dvLC] = bip[bip_pvLB]-bip[bip_dvLB]; bip[bip_pvLB] = bip[bip_dvLB]; //acceleration
+bip[bip_dvLD] = bip[bip_pvLC]-bip[bip_dvLC]; bip[bip_pvLC] = bip[bip_dvLC]; //jerk
+bip_dvE = bip[bip_pvLD]-bip[bip_dvLD]; bip[bip_pvLD] = bip[bip_dvLD]; //snap
+inputSampleL *= (1.0+(abs(bip[bip_dvLC])*0.0618)+(abs(bip[bip_dvLD])*-0.05982)+(abs(bip_dvE)*0.0206));
+
+//Spiral saturation section R
+bip_delta = inputSampleR;
+drySample = inputSampleR;
+inputSampleR = max(min(inputSampleR,1.0),-1.0);
+phatSample = inputSampleR * 1.57079633;
+X = phatSample; X *= X;
+temp = phatSample * X;
+phatSample -= temp*0.16666666666666666666666666666666666; temp *= X;
+phatSample += temp*0.00833333333333333333333333333333333; temp *= X;
+phatSample -= temp*0.00019841269841269841269841269841269; temp *= X;
+phatSample += temp*0.00000275573192239858906525573192239; temp *= X;
+phatSample -= temp*0.00000002505210838544171877521083854; temp *= X;
+phatSample += temp*0.00000000016059043836821614599392377; temp *= X;
+phatSample -= temp*0.00000000000076471637318198164759011; temp *= X;
+phatSample += temp*0.00000000000000281145725434552076319; temp *= X;
+phatSample -= temp*0.00000000000000000822063524662432971; temp *= X;
+phatSample += temp*0.00000000000000000001957294106339126;
+inputSampleR *= 1.2533141373155;
+distSample = inputSampleR * abs(inputSampleR);
+X = distSample; X *= X;
+temp = distSample * X;
+distSample -= temp*0.16666666666666666666666666666666666; temp *= X;
+distSample += temp*0.00833333333333333333333333333333333; temp *= X;
+distSample -= temp*0.00019841269841269841269841269841269; temp *= X;
+distSample += temp*0.00000275573192239858906525573192239; temp *= X;
+distSample -= temp*0.00000002505210838544171877521083854; temp *= X;
+distSample += temp*0.00000000016059043836821614599392377; temp *= X;
+distSample -= temp*0.00000000000076471637318198164759011; temp *= X;
+distSample += temp*0.00000000000000281145725434552076319; temp *= X;
+distSample -= temp*0.00000000000000000822063524662432971; temp *= X;
+distSample += temp*0.00000000000000000001957294106339126;
+distSample /= ((abs(inputSampleR) == 0.0) ?1.0:abs(inputSampleR));
+inputSampleR = distSample;
+(density < 1.0) ? inputSampleR = (drySample*(1-density))+(distSample*density);
+(phattity > 0.0) ? inputSampleR = (inputSampleR*(1-phattity))+(phatSample*phattity);
+//RetroBass derivative modulation after saturation R
+bip[bip_dvRA] = bip_delta - inputSampleR;
+bip[bip_dvRB] = bip[bip_pvRA]-bip[bip_dvRA]; bip[bip_pvRA] = bip[bip_dvRA];
+bip[bip_dvRC] = bip[bip_pvRB]-bip[bip_dvRB]; bip[bip_pvRB] = bip[bip_dvRB];
+bip[bip_dvRD] = bip[bip_pvRC]-bip[bip_dvRC]; bip[bip_pvRC] = bip[bip_dvRC];
+bip_dvE = bip[bip_pvRD]-bip[bip_dvRD]; bip[bip_pvRD] = bip[bip_dvRD];
+inputSampleR *= (1.0+(abs(bip[bip_dvRC])*0.0618)+(abs(bip[bip_dvRD])*-0.05982)+(abs(bip_dvE)*0.0206));
+
+//slew section L
+clamp = (lastSampleLB - lastSampleLC) * 0.381966011250105;
+clamp -= (lastSampleLA - lastSampleLB) * 0.6180339887498948482045;
+clamp += inputSampleL - lastSampleLA;
+lastSampleLC = lastSampleLB;
+lastSampleLB = lastSampleLA;
+lastSampleLA = inputSampleL;
+(clamp > threshold) ?
+  inputSampleL = lastSampleLB + threshold;
+(-clamp > threshold) ?
+  inputSampleL = lastSampleLB - threshold;
+lastSampleLA = (lastSampleLA*0.381966011250105)+(inputSampleL*0.6180339887498948482045);
+
+//slew section R
+clamp = (lastSampleRB - lastSampleRC) * 0.381966011250105;
+clamp -= (lastSampleRA - lastSampleRB) * 0.6180339887498948482045;
+clamp += inputSampleR - lastSampleRA;
+lastSampleRC = lastSampleRB;
+lastSampleRB = lastSampleRA;
+lastSampleRA = inputSampleR;
+(clamp > threshold) ?
+  inputSampleR = lastSampleRB + threshold;
+(-clamp > threshold) ?
+  inputSampleR = lastSampleRB - threshold;
+lastSampleRA = (lastSampleRA*0.381966011250105)+(inputSampleR*0.6180339887498948482045);
+
+flip = !flip;
+(output < 1.0) ? (
+  inputSampleL *= output;
+  inputSampleR *= output;
+);
+
+spl0 = inputSampleL;
+spl1 = inputSampleR;
